@@ -1,0 +1,43 @@
+{{ "description-banner.css" | asset_url | stylesheet_tag }}
+<section class="description-banner">
+  <div class="container">
+    <div class="description-banner__wraper">
+      <div class="description-banner__description">
+        <div class="description-banner__description-title">
+          New!
+        </div>
+        <div class="description-banner__description-sub-title">
+          <h2>CLEAN SKIN CLEANSER</h2>
+        </div>
+        <div class="description-banner__description-text">
+          THE ULTIMATE FACE CLEANSER FOR SENSITIVE SKIN
+        </div>
+        <div class="description-banner__description-text-text">
+         <p>Introducing CLEAN SKIN by Dermaflage, a non-foaming mild formula that deeply cleanses to remove makeup & impurities without irritating or drying the skin. Specially formulated for sensitive skin, key ingredients aloe, jojoba & chamomile work together to help soothe and calm the skin for thoroughly clean skin without dryness, irritation or tightness.</p> 
+        </div>
+        <div class="description-banner__description-button">
+          <a href="">LEARN MORE</a>
+        </div>
+      </div>
+      <div class="description-banner__banner">
+         <img class="description-banner__img"src="https://dermaflage.com/wp-content/uploads/2023/06/January-2023-17-scaled-e1686939837334.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "description-banner",
+  "tag": "section",
+  "settings": [
+    
+  ],
+  
+  "presets": [
+    {
+      "name": "description-banner"
+    }
+  ]
+}
+{% endschema %}

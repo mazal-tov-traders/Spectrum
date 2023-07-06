@@ -1,0 +1,27 @@
+{{ 'benefit-offer.css' | asset_url | stylesheet_tag }}
+<section class="benefit-offer">
+  
+  <div class="benefit-offer__wrapper">
+    <img class="benefit-offer__wrapper_img"  src="https://dermaflage.com/wp-content/uploads/2023/06/money-back-gyarantee-badge.png" alt="">
+    <div class="benefit-offer__wrapper_text1">We give you 30 Days to try our products and see the results for yourself.</div>
+    <div class="benefit-offer__wrapper_text2">If in this timeframe you are not 100% satisfied, simply contact us for a full refund.</div>
+    <div class="benefit-offer__wrapper_text3">No questions asked.</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "benefit-offer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    
+  ],
+  
+  "presets": [
+    {
+      "name": "benefit offer"
+    }
+  ]
+}
+{% endschema %}

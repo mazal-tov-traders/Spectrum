@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-search",
+      "disabled": true,
       "settings": {
         "columns_desktop": 4,
         "image_ratio": "adapt",
@@ -9,6 +10,7 @@
         "show_vendor": false,
         "show_rating": false,
         "enable_filtering": true,
+        "filter_type": "horizontal",
         "enable_sorting": true,
         "article_show_date": true,
         "article_show_author": false,

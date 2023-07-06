@@ -8,32 +8,61 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "icon_announcement_bar": "shopify:\/\/shop_images\/Screenshot_2_931f4438-2dbd-43db-bdc0-e2f9ab5f5445.png",
+            "text": "Free Shipping on all U.S. Orders",
             "text_alignment": "center",
-            "color_scheme": "background-1",
+            "color_scheme": "accent-2",
             "link": ""
           }
         }
       },
       "block_order": [
         "announcement-bar-0"
-      ]
+      ],
+      "settings": {
+      }
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "8130062d-2596-418e-adcb-c5c1599ea378": {
+          "type": "product",
+          "settings": {
+            "product": "apple-cinnamon"
+          }
+        },
+        "679a79ec-a0dd-4c3d-9de7-96d543561dfc": {
+          "type": "product",
+          "settings": {
+            "product": "caramel-sea-salt"
+          }
+        },
+        "f2147af9-c18d-44e0-81dc-b366f7370044": {
+          "type": "product",
+          "settings": {
+            "product": "mixed-berry"
+          }
+        }
+      },
+      "block_order": [
+        "8130062d-2596-418e-adcb-c5c1599ea378",
+        "679a79ec-a0dd-4c3d-9de7-96d543561dfc",
+        "f2147af9-c18d-44e0-81dc-b366f7370044"
+      ],
       "settings": {
-        "color_scheme": "background-1",
-        "logo_position": "middle-left",
+        "show_rating": true,
+        "logo_position": "top-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "mobile_logo_position": "center",
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "left",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },

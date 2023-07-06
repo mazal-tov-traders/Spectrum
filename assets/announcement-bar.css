@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+.announcement-bar {
+    background-color: #363636;
+}
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+.announcement-bar__wrapper {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 10px 0 10px 0;
+    justify-content: flex-end;
+    max-width: 1440px;
+    
+}
+.announcement-bar__wrapper_blog {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    padding-right: 20px;
+   height: 16px;
+    border-right: 1.5px solid #fff;
+    
+    line-height: 16px;
+    
+    
+    
+}
+
+.announcement-bar__wrapper_contact-us {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 20px;
+
+}
+.announcement-bar__wrapper_free-shipping-inner {
+    align-items: center;
+    display: flex;
+}
+.announcement-bar__wrapper_free-shipping-inner_img-car {
+    padding-left: 91px;
+    display: block;
+}
+.announcement-bar__wrapper_free-shipping-inner_text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+   color: #FFBF26; 
+   padding-left: 15px;
+}
+.announcement-bar__wrapper_free-shipping-inner_img-i{
+    
+    margin-bottom: 20px;
+}
+.announcement-bar__wrapper_tell-inner {
+    display: flex;
+    align-items: center;
+}
+.announcement-bar__wrapper_tell-inner_img {
+    padding-left: 70px;
+    margin-top: 8px;
+    
+}
+.announcement-bar__wrapper_tell-inner_tell {
+    padding-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+.announcement-bar__wrapper_accaunt-innner {
+    display: flex;
+    align-items: center;
+    
+    
+}
+.announcement-bar__wrapper_accaunt-innner_img {
+    padding-left: 40px;
+   margin-top: 8px;
+}
+.announcement-bar__wrapper_accaunt-innner_text {
+    padding-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}

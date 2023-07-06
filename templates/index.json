@@ -3,25 +3,32 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
+        "a50479f7-cd38-4fef-8004-9a9c3de8404b": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "",
             "heading_size": "h0"
           }
         },
-        "text": {
+        "f7de34cf-2b14-45e3-8b0f-d835c490d668": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text": "Don’t settle for less. Get the best solution for your business",
+            "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -30,181 +37,156 @@
         }
       },
       "block_order": [
+        "a50479f7-cd38-4fef-8004-9a9c3de8404b",
         "heading",
-        "text",
+        "f7de34cf-2b14-45e3-8b0f-d835c490d668",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image": "shopify:\/\/shop_images\/Rectangle_5.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
     },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+    "fa1bc045-62ff-45e7-a2af-c10f774f3e7b": {
+      "type": "presentation-product",
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "66a8513c-f426-4b5b-88ad-3cc2c0e3a891": {
+      "type": "description-banner",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
+    "08fe50af-e888-405d-bcff-62ef531c53d1": {
+      "type": "innovative-makeup",
+      "settings": {
+      }
+    },
+    "63c9314e-e0ba-4450-81b2-17122da7d8d7": {
+      "type": "video-and-product",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
+        "49e688e6-6c97-4e1b-b6de-175eda44ff63": {
           "type": "product",
           "settings": {
-            "product": "",
-            "second_image": false
+            "product": "scar-wrinkle-filler"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "413dbc04-8af0-4559-9609-c43b6cad4968": {
+          "type": "product",
           "settings": {
-            "collection": ""
+            "product": "mineral-powder-foundation"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "49e688e6-6c97-4e1b-b6de-175eda44ff63",
+        "413dbc04-8af0-4559-9609-c43b6cad4968"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
-    "video": {
+    "226640c7-4eba-4dba-a5f7-4af3d0cc3224": {
+      "type": "section-slider-products",
+      "blocks": {
+        "cffadf2c-f5ae-4bf1-a1ff-a7429b289094": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "bronzer-highlighter-blush-palette",
+            "enable_cart": false
+          }
+        },
+        "be4553ea-50bc-4bad-970b-c98484472581": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "tattoo-cover-up",
+            "enable_cart": true
+          }
+        },
+        "f04b7f96-8bf4-4acf-b702-d58b8539cf8e": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "banana-setting-power-d-shine-by-dermaflage",
+            "enable_cart": false
+          }
+        },
+        "e1afa144-0f79-41db-b36e-a797ad6c0b71": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "concealer",
+            "enable_cart": true
+          }
+        },
+        "25d9844e-6036-44e1-940d-254a8b0040a9": {
+          "type": "product",
+          "settings": {
+            "proposal_product": "",
+            "enable_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "cffadf2c-f5ae-4bf1-a1ff-a7429b289094",
+        "be4553ea-50bc-4bad-970b-c98484472581",
+        "f04b7f96-8bf4-4acf-b702-d58b8539cf8e",
+        "e1afa144-0f79-41db-b36e-a797ad6c0b71",
+        "25d9844e-6036-44e1-940d-254a8b0040a9"
+      ],
+      "settings": {
+        "show_rating": true,
+        "slider_items": 3
+      }
+    },
+    "3cb9b1f7-c818-4412-b206-3359255f37d8": {
+      "type": "benefit-offer",
+      "settings": {
+      }
+    },
+    "b309dd9a-2fc8-45d6-bce8-f366f0dcc1a1": {
       "type": "video",
       "settings": {
         "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
+        "heading_size": "h0",
+        "enable_video_looping": false,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=KLr3m4POEr0",
+        "cover_image": "shopify:\/\/shop_images\/the-doctors-dermaflage-scaled.webp",
         "description": "",
         "full_width": false,
         "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+    "ffa895b1-b900-49f9-816a-b03d3c5aff8d": {
+      "type": "test",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "get_img_test": "shopify:\/\/shop_images\/dflogo-w-guarantee.webp"
+      }
+    },
+    "0fb045af-d0ac-48e7-95e0-a03be7be38b6": {
+      "type": "presentation-product",
+      "settings": {
       }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "fa1bc045-62ff-45e7-a2af-c10f774f3e7b",
+    "66a8513c-f426-4b5b-88ad-3cc2c0e3a891",
+    "08fe50af-e888-405d-bcff-62ef531c53d1",
+    "63c9314e-e0ba-4450-81b2-17122da7d8d7",
+    "226640c7-4eba-4dba-a5f7-4af3d0cc3224",
+    "3cb9b1f7-c818-4412-b206-3359255f37d8",
+    "b309dd9a-2fc8-45d6-bce8-f366f0dcc1a1",
+    "ffa895b1-b900-49f9-816a-b03d3c5aff8d",
+    "0fb045af-d0ac-48e7-95e0-a03be7be38b6"
   ]
 }

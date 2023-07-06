@@ -1,0 +1,70 @@
+{% if section.settings.menu %}
+  <div id="mobile-menu" class="mobile-menu">
+    <button onclick="toggleMobileMenu()" class="mobile-menu__toggle">Меню</button>
+    <ul class="mobile-menu__list">
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          ddd
+          <a href="{{ link.url }}" class="mobile-menu__item">{{ link.title }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{% endif %}
+<style>
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu__toggle {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.mobile-menu__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu__item {
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+</style>
+
+<script>
+  function toggleMobileMenu() {
+    var mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.toggle("active");
+  }
+</script>
+{% schema %}
+{
+  "name": "test",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "get_img_test",
+      "label": "Get Imag"
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Image get links"
+    }
+  ]
+}
+{% endschema %}

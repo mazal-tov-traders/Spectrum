@@ -1,0 +1,42 @@
+.innovative-makeup {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.innovative-makeup-wrapper {
+  text-align: center;
+  padding: 80px 20px 0 20px;
+  
+}
+.innovative-makeup-title {
+  color: #b9b9b9;
+  font-family: "Homemade Apple", cursive;
+  font-size: 49px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-bottom: 14px;
+  letter-spacing: -4.5px;
+}
+.innovative-makeup-discription {
+  color: #000;
+  font-family: "Roboto", Sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+.innovative-makeup-text {
+  color: #6b6b6b;
+  font-family: "Georgia", Sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+@media (max-width: 767px) {
+  .innovative-makeup-title {
+    font-size: 2em;
+  }
+  .innovative-makeup-discription {
+    font-size: 22px;
+  }
+  
+}

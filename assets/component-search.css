@@ -1,5 +1,8 @@
+
 .search__input.field__input {
   padding-right: 9.8rem;
+  border: 1px solid #AED1EA;
+  border-radius: 3px;
 }
 
 .search__button {
@@ -22,9 +25,9 @@
 }
 
 .reset__button:not(:focus)::after {
-  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-right: 0.1rem solid #AED1EA;
   display: block;
-  height: calc(100% - 1.8rem);
+  height: calc(100% - 0rem);
   content: '';
   position: absolute;
   right: 0;
@@ -53,14 +56,15 @@
   transform: scale(1.07);
 }
 
+
 .search__button .icon {
   height: 1.8rem;
   width: 1.8rem;
 }
 
 .reset__button .icon.icon-close {
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 2rem;
+  width: 2rem;
   stroke-width: 0.1rem;
 }
 
