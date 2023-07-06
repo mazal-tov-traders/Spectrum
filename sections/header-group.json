@@ -50,6 +50,8 @@
         "f2147af9-c18d-44e0-81dc-b366f7370044"
       ],
       "settings": {
+        "image_grad": "shopify:\/\/shop_images\/Rectangle_4133679.jpg",
+        "image_print": "shopify:\/\/shop_images\/2107310544_1.png",
         "show_rating": true,
         "logo_position": "top-left",
         "menu": "main-menu",
