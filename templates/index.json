@@ -1,192 +1,343 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "983864c1-f83e-4d66-850e-33108c1d8756": {
+      "type": "banner-with-category-blocks",
       "blocks": {
-        "a50479f7-cd38-4fef-8004-9a9c3de8404b": {
-          "type": "heading",
+        "ca15c3e2-3ee6-4293-8315-60b85d315778": {
+          "type": "category",
           "settings": {
-            "heading": "",
-            "heading_size": "h1"
+            "collection": "brands",
+            "title": "Printers",
+            "image": "shopify:\/\/shop_images\/2107310544_2.png",
+            "background_color": "",
+            "big_block": false
           }
         },
-        "heading": {
-          "type": "heading",
+        "03567a06-dade-4df8-99ab-72eb74212eda": {
+          "type": "category",
           "settings": {
-            "heading": "",
-            "heading_size": "h0"
+            "collection": "ciaat",
+            "title": "Scanners",
+            "image": "shopify:\/\/shop_images\/515Wx515H_2.png",
+            "background_color": "",
+            "big_block": false
           }
         },
-        "f7de34cf-2b14-45e3-8b0f-d835c490d668": {
+        "4d86f3aa-81b6-4f1a-9b0c-82fb1176d5be": {
+          "type": "category",
+          "settings": {
+            "collection": "epson",
+            "title": "Printer Ink",
+            "image": "shopify:\/\/shop_images\/ecotank-115_ink_bottle_group_png_2.png",
+            "background_color": "",
+            "big_block": false
+          }
+        },
+        "c1a116a2-6647-41c7-b27f-aed7e403883c": {
+          "type": "category",
+          "settings": {
+            "collection": "kodak",
+            "title": "Accessories",
+            "image": "shopify:\/\/shop_images\/ymck_ribbon_spools-hi-1_1.png",
+            "background_color": "",
+            "big_block": false
+          }
+        },
+        "bbb1acee-1793-4cfd-a367-2a3061589815": {
+          "type": "category",
+          "settings": {
+            "collection": "large-format-printers",
+            "title": "Photo Printers",
+            "image": "shopify:\/\/shop_images\/Fujifilm-Frontier-DE100_1.png",
+            "background_color": "",
+            "big_block": true
+          }
+        },
+        "0b81b035-06c4-4af0-9ebd-03f1ff89360e": {
+          "type": "category",
+          "settings": {
+            "collection": "epson-r-series-printers",
+            "title": "Warranties",
+            "image": "shopify:\/\/shop_images\/epson_eppt5100ms1_epson_1_year_pg_extended_1616301-removebg-preview-removebg-preview_1.png",
+            "background_color": "#e4f2f8",
+            "big_block": true
+          }
+        },
+        "5a305c80-c10a-4278-8ebc-8daa50c8f558": {
+          "type": "menu_image",
+          "settings": {
+            "key": "Printers",
+            "image": "shopify:\/\/shop_images\/Group_1212011.png",
+            "link": "shopify:\/\/products\/copy-of-canon-80ml-pfi-1000-lucia-pro-ink-matte-black-0545c002-1",
+            "btn_label": "Check All",
+            "btn_show": true
+          }
+        },
+        "f447a26d-a523-4130-a2f4-dd9f86e58ccc": {
+          "type": "menu_image",
+          "settings": {
+            "key": "Printer Supplies",
+            "image": "shopify:\/\/shop_images\/Group_1212011.png",
+            "link": "shopify:\/\/collections\/fujifilm",
+            "btn_label": "Check All",
+            "btn_show": false
+          }
+        }
+      },
+      "block_order": [
+        "ca15c3e2-3ee6-4293-8315-60b85d315778",
+        "03567a06-dade-4df8-99ab-72eb74212eda",
+        "4d86f3aa-81b6-4f1a-9b0c-82fb1176d5be",
+        "c1a116a2-6647-41c7-b27f-aed7e403883c",
+        "bbb1acee-1793-4cfd-a367-2a3061589815",
+        "0b81b035-06c4-4af0-9ebd-03f1ff89360e",
+        "5a305c80-c10a-4278-8ebc-8daa50c8f558",
+        "f447a26d-a523-4130-a2f4-dd9f86e58ccc"
+      ],
+      "settings": {
+        "background": "shopify:\/\/shop_images\/Rectangle_5.png",
+        "hero_image": "shopify:\/\/shop_images\/Group_12120101.png",
+        "menu": "main-menu",
+        "title": "<strong>Don’t settle for less.<\/strong> Get the best<em> <\/em>solution for your business",
+        "subtitle": "",
+        "btn_label": "Shop Now",
+        "btn_link": "shopify:\/\/collections\/hiti"
+      }
+    },
+    "438b72d1-dbc4-4080-872b-7abd944b91cf": {
+      "type": "featured-collection-new",
+      "settings": {
+        "collection": "printer-supplies",
+        "title": "Special Offers",
+        "background": "#F8FCFF",
+        "show_sec_image": true,
+        "collection_slider_slidesperview_mobile": 1.2,
+        "collection_slider_slidesperview_tablet": 2,
+        "collection_slider_slidesperview_laptop": 3,
+        "collection_slider_slidesperview_desktop": 4,
+        "collection_slider_spacebetween_mobile": 10,
+        "collection_slider_spacebetween_tablet": 10,
+        "collection_slider_spacebetween_laptop": 20,
+        "collection_slider_spacebetween_desktop": 20
+      }
+    },
+    "1689328378e0d993ca": {
+      "type": "apps",
+      "blocks": {
+        "65264506-fc8c-4c5a-a2ad-60d2e3a1253d": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1300
+          }
+        }
+      },
+      "block_order": [
+        "65264506-fc8c-4c5a-a2ad-60d2e3a1253d"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "575cc416-87db-431d-95e0-cd64bba3ae60": {
+      "type": "image-banner-promotions",
+      "blocks": {
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Save Big with Imaging Spectrum"
+          }
+        },
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-1": {
           "type": "text",
           "settings": {
-            "text": "Don’t settle for less. Get the best solution for your business",
-            "text_style": "subtitle"
+            "text": "Get discounted products from trusted brands like HP, Canon, and Epson. Shop now and save!"
           }
         },
-        "button": {
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label": "Go to Sale",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "dafa4886-7ba9-44a2-afc6-ee2c1c1d4528": {
+          "type": "sticker",
+          "settings": {
+            "sticker_text": "<p>Get Up To <strong>-50%<\/strong><\/p>",
+            "sticker_backgound": "#f25140",
+            "sticker_text_color": "#ffffff"
           }
         }
       },
       "block_order": [
-        "a50479f7-cd38-4fef-8004-9a9c3de8404b",
-        "heading",
-        "f7de34cf-2b14-45e3-8b0f-d835c490d668",
-        "button"
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-0",
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-1",
+        "template--15860287537335__575cc416-87db-431d-95e0-cd64bba3ae60-16884817698d1df4a6-2",
+        "dafa4886-7ba9-44a2-afc6-ee2c1c1d4528"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Rectangle_5.png",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image_desktop": "shopify:\/\/shop_images\/Rectangle_4133656.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Rectangle_41336562.jpg",
+        "image_content": "shopify:\/\/shop_images\/76d12451-e71d-4cd0-a359-279d601853d7_1500x1077_1.png",
+        "text_color": "#ffffff"
       }
     },
-    "fa1bc045-62ff-45e7-a2af-c10f774f3e7b": {
-      "type": "presentation-product",
+    "8d7fd618-ff21-405a-a8c0-cb5a48d01d26": {
+      "type": "featured-collection-grid",
       "settings": {
-      }
-    },
-    "66a8513c-f426-4b5b-88ad-3cc2c0e3a891": {
-      "type": "description-banner",
-      "settings": {
-      }
-    },
-    "08fe50af-e888-405d-bcff-62ef531c53d1": {
-      "type": "innovative-makeup",
-      "settings": {
-      }
-    },
-    "63c9314e-e0ba-4450-81b2-17122da7d8d7": {
-      "type": "video-and-product",
-      "blocks": {
-        "49e688e6-6c97-4e1b-b6de-175eda44ff63": {
-          "type": "product",
-          "settings": {
-            "product": "scar-wrinkle-filler"
-          }
-        },
-        "413dbc04-8af0-4559-9609-c43b6cad4968": {
-          "type": "product",
-          "settings": {
-            "product": "mineral-powder-foundation"
-          }
-        }
-      },
-      "block_order": [
-        "49e688e6-6c97-4e1b-b6de-175eda44ff63",
-        "413dbc04-8af0-4559-9609-c43b6cad4968"
-      ],
-      "settings": {
-      }
-    },
-    "226640c7-4eba-4dba-a5f7-4af3d0cc3224": {
-      "type": "section-slider-products",
-      "blocks": {
-        "cffadf2c-f5ae-4bf1-a1ff-a7429b289094": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "bronzer-highlighter-blush-palette",
-            "enable_cart": false
-          }
-        },
-        "be4553ea-50bc-4bad-970b-c98484472581": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "tattoo-cover-up",
-            "enable_cart": true
-          }
-        },
-        "f04b7f96-8bf4-4acf-b702-d58b8539cf8e": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "banana-setting-power-d-shine-by-dermaflage",
-            "enable_cart": false
-          }
-        },
-        "e1afa144-0f79-41db-b36e-a797ad6c0b71": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "concealer",
-            "enable_cart": true
-          }
-        },
-        "25d9844e-6036-44e1-940d-254a8b0040a9": {
-          "type": "product",
-          "settings": {
-            "proposal_product": "",
-            "enable_cart": false
-          }
-        }
-      },
-      "block_order": [
-        "cffadf2c-f5ae-4bf1-a1ff-a7429b289094",
-        "be4553ea-50bc-4bad-970b-c98484472581",
-        "f04b7f96-8bf4-4acf-b702-d58b8539cf8e",
-        "e1afa144-0f79-41db-b36e-a797ad6c0b71",
-        "25d9844e-6036-44e1-940d-254a8b0040a9"
-      ],
-      "settings": {
-        "show_rating": true,
-        "slider_items": 3
-      }
-    },
-    "3cb9b1f7-c818-4412-b206-3359255f37d8": {
-      "type": "benefit-offer",
-      "settings": {
-      }
-    },
-    "b309dd9a-2fc8-45d6-bce8-f366f0dcc1a1": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h0",
-        "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=KLr3m4POEr0",
-        "cover_image": "shopify:\/\/shop_images\/the-doctors-dermaflage-scaled.webp",
+        "title": "Products you may be interested in",
         "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
+        "show_description": false,
+        "collection": "printer-supplies",
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "collection_slider_slidesperview_mobile": 1.2,
+        "collection_slider_spacebetween_mobile": 10,
+        "padding_top": 80,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "650e96dc-afad-4e8c-be02-e6afbdb217c7": {
+      "type": "featured-brands",
+      "settings": {
+        "title": "Shop by Brand",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
+    "adb4bb0e-6211-4bac-957a-dfd2b7a27ba4": {
+      "type": "promotion-banners",
+      "blocks": {
+        "55f49d79-b015-4e0c-a03f-9d93bc8e8daa": {
+          "type": "banner",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/456.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/0000.jpg",
+            "product": "canon-80ml-pfi-1000-lucia-pro-ink-matte-black-0545c002"
+          }
+        },
+        "dee61daf-f132-403b-8a9f-bdbd9aada38b": {
+          "type": "banner",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/123.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/789.jpg",
+            "product": "epson-surecolor-f570-24-pro-sublimation-printer-scf570pe"
+          }
+        }
+      },
+      "block_order": [
+        "55f49d79-b015-4e0c-a03f-9d93bc8e8daa",
+        "dee61daf-f132-403b-8a9f-bdbd9aada38b"
+      ],
+      "settings": {
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 80
       }
     },
-    "ffa895b1-b900-49f9-816a-b03d3c5aff8d": {
-      "type": "test",
+    "977162e1-37f0-4ee8-a4bf-195d352bdc8d": {
+      "type": "featured-collection-new",
       "settings": {
-        "get_img_test": "shopify:\/\/shop_images\/dflogo-w-guarantee.webp"
+        "collection": "printer-supplies",
+        "title": "You may also like",
+        "background": "#F8FCFF",
+        "show_sec_image": false,
+        "collection_slider_slidesperview_mobile": 1.2,
+        "collection_slider_slidesperview_tablet": 2,
+        "collection_slider_slidesperview_laptop": 3,
+        "collection_slider_slidesperview_desktop": 4,
+        "collection_slider_spacebetween_mobile": 10,
+        "collection_slider_spacebetween_tablet": 20,
+        "collection_slider_spacebetween_laptop": 20,
+        "collection_slider_spacebetween_desktop": 20
       }
     },
-    "0fb045af-d0ac-48e7-95e0-a03be7be38b6": {
-      "type": "presentation-product",
+    "a0207ab1-b986-4483-83c5-83e1ac90ce63": {
+      "type": "location",
+      "blocks": {
+        "template--15860741734583__a0207ab1-b986-4483-83c5-83e1ac90ce63-16890584292d385456-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "See the Printers in Action"
+          }
+        },
+        "template--15860741734583__a0207ab1-b986-4483-83c5-83e1ac90ce63-16890584292d385456-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Located in Plano, Texas, our showroom contains the latest printers and software for you to test drive. Call for an appointment.<\/p>"
+          }
+        },
+        "b5b9ce16-76e9-4cd7-8f94-44f839ba1d0d": {
+          "type": "schedule",
+          "settings": {
+            "heading": "Our showroom is open",
+            "content": "<p>Monday to Thursday 8:00 AM - 5:30 PM<\/p><p>Friday 8:00 AM - 5:00 PM Central<\/p>"
+          }
+        },
+        "d2f44544-9b0d-47c3-90b1-2c2d18757d0c": {
+          "type": "contact",
+          "settings": {
+            "heading": "Phone",
+            "content": "<p><a href=\"tel:2143429290\" target=\"_blank\" title=\"tel:2143429290\">214-342-9290<\/a><\/p>"
+          }
+        },
+        "d294fcf9-90ba-41d5-a476-f16bd6d7b01c": {
+          "type": "address",
+          "settings": {
+            "heading": "Imaging Spectrum Inc.",
+            "content": "<p>1101 Summit Ave.<br\/>Plano, TX 75074<\/p>"
+          }
+        },
+        "9b4b1b31-c38a-4f97-939f-407a77769482": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_at_May_12_14-30-26_2.jpg",
+            "html": ""
+          }
+        },
+        "b653f2f8-ade3-43ab-92cc-b6b8ae8c02fa": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_at_May_12_14-30-26_1.jpg",
+            "html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3345.767811244488!2d-96.70132698719789!3d33.009896473456976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1922591b79ab%3A0x4a689e3192f7fb83!2zMTEwMSBTdW1taXQgQXZlLCBQbGFubywgVFggNzUwNzQsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1689058579042!5m2!1sru!2sua\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
+          }
+        }
+      },
+      "block_order": [
+        "template--15860741734583__a0207ab1-b986-4483-83c5-83e1ac90ce63-16890584292d385456-0",
+        "template--15860741734583__a0207ab1-b986-4483-83c5-83e1ac90ce63-16890584292d385456-1",
+        "b5b9ce16-76e9-4cd7-8f94-44f839ba1d0d",
+        "d2f44544-9b0d-47c3-90b1-2c2d18757d0c",
+        "d294fcf9-90ba-41d5-a476-f16bd6d7b01c",
+        "9b4b1b31-c38a-4f97-939f-407a77769482",
+        "b653f2f8-ade3-43ab-92cc-b6b8ae8c02fa"
+      ],
       "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "image_banner",
-    "fa1bc045-62ff-45e7-a2af-c10f774f3e7b",
-    "66a8513c-f426-4b5b-88ad-3cc2c0e3a891",
-    "08fe50af-e888-405d-bcff-62ef531c53d1",
-    "63c9314e-e0ba-4450-81b2-17122da7d8d7",
-    "226640c7-4eba-4dba-a5f7-4af3d0cc3224",
-    "3cb9b1f7-c818-4412-b206-3359255f37d8",
-    "b309dd9a-2fc8-45d6-bce8-f366f0dcc1a1",
-    "ffa895b1-b900-49f9-816a-b03d3c5aff8d",
-    "0fb045af-d0ac-48e7-95e0-a03be7be38b6"
+    "983864c1-f83e-4d66-850e-33108c1d8756",
+    "438b72d1-dbc4-4080-872b-7abd944b91cf",
+    "1689328378e0d993ca",
+    "575cc416-87db-431d-95e0-cd64bba3ae60",
+    "8d7fd618-ff21-405a-a8c0-cb5a48d01d26",
+    "650e96dc-afad-4e8c-be02-e6afbdb217c7",
+    "adb4bb0e-6211-4bac-957a-dfd2b7a27ba4",
+    "977162e1-37f0-4ee8-a4bf-195d352bdc8d",
+    "a0207ab1-b986-4483-83c5-83e1ac90ce63"
   ]
 }

@@ -1,0 +1,208 @@
+{{ 'contact-us-info.css' | asset_url | stylesheet_tag }}
+
+<section class="page-width contact-us-info ">
+  <h2 class="contact-us_title">Contact Us</h2> 
+  <div class="contact-us-info__wrapper">
+    <div class="Contact_Info_inner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'contact_Info' %}
+            <div class="Contact_Information__title">{{ block.settings.heading1 }}</div>
+
+            <h3 class="opening-hours__title">
+              {% render 'icon-clock' %}
+              {{ block.settings.heading2 }}
+            </h3>
+            <div class="opening-hours__description">
+              {{ block.settings.content2 }}
+            </div>
+
+            <h3 class="phone__title">
+              {% render 'icon-phone' %}
+              {{ block.settings.heading3 }}
+            </h3>
+            <div class="phone__number">
+              <a href="tel:2143429290">{{ block.settings.content3 }}</a>
+              
+            </div>
+
+            <h3 class="map-pointer__title">
+              {% render 'icon-map-pointer' %}
+              {{ block.settings.heading4 }}
+            </h3>
+            <div class="map-pointer__description">
+              {{ block.settings.content4 }}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <div class="email_addresses__innner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'email_Addresses' %}
+            <div class="email_addresses__wrapper">
+              <div class="email_addresses__title">
+                {{ block.settings.heading_email }}
+              </div>
+
+              <div class="email_addresses__description">
+                {{ block.settings.content_email }}
+              </div>
+
+              <div class="email_addresses__heading">
+                {% render 'icon-email' %}
+                {{ block.settings.heading_email1 }}
+              </div>
+
+              <a href="mailto:sales@imagingspectrum.com" class="email_addresses__Content">{{ block.settings.content_email1 }}</a>
+
+              <div class="email_addresses__heading">
+                {% render 'icon-email' %}
+                {{ block.settings.heading_email2 }}
+              </div>
+
+             
+                <a href="techsupport@imagingspectrum.com" class="email_addresses__Content">{{ block.settings.content_email2 }}</a>
+                
+             
+
+              <div class="email_addresses__heading">
+                {% render 'icon-email' %}
+                {{ block.settings.heading_email3 }}
+              </div>
+
+              <a href="photobooth@imagingspectrum.com" class="email_addresses__Content">{{ block.settings.content_email3 }}</a>
+                
+             
+
+              <div class="email_addresses__heading">
+                {% render 'icon-email' %}
+                {{ block.settings.heading_email4 }}
+              </div>
+              <a href="mailto:inkjet@imagingspectrum.com" class="email_addresses__Content">{{ block.settings.content_email4 }}</a>
+              
+              
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    
+  </div>
+  <div class="border-container">
+    
+  </div>
+</section>
+{% schema %}
+{
+  "name": "contact-us-info",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "email_Addresses",
+      "name": "Email Addresses",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading_email",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_email",
+          "label": "Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_email1",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_email1",
+          "label": "Email addresses"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_email2",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_email2",
+          "label": "Email addresses"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_email3",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_email3",
+          "label": "Email addresses"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_email4",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_email4",
+          "label": "Email addresses"
+        }
+      ]
+    },
+    {
+      "type": "contact_Info",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading1",
+          "label": "Title"
+        },
+
+        {
+          "type": "inline_richtext",
+          "id": "heading2",
+          "label": "Schedule Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content2",
+          "label": "Schedule Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading3",
+          "label": "Phone"
+        },
+        {
+          "type": "richtext",
+          "id": "content3",
+          "label": "Phone Numbert"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading4",
+          "label": "Address Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content4",
+          "label": "Address Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Us info"
+    }
+  ]
+}
+{% endschema %}

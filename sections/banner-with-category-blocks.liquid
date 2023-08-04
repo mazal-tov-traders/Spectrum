@@ -1,0 +1,274 @@
+
+<div class="banner-categories">
+   {% comment %} {% if section.settings.background != blank %}
+        {{ section.settings.background | image_url: width: 2000 | image_tag: class: 'background-image' }}
+    {% endif %} {% endcomment %}
+
+    <div class="banner-inner">   
+        <div class="page-width">
+            {% if section.settings.menu != blank %}
+                <div class="menu-block">
+                    <a href="/collections/all" class="shop-all-btn">Shop All Products</a>
+
+                    <div class="link-list">
+                        {% for link in section.settings.menu.links %}
+                            {% if link.links != blank %}
+                                <div class="link-item">
+                                    {% assign title = link.title | handleize %}
+                                    {% if shop.metaobjects.navigation_icons[title].image.value != blank %}
+                                        {{ shop.metaobjects.navigation_icons[title].image.value | image_url: width: 20 | image_tag }}
+                                    {% endif %}
+                                    <span class="title">{{ link.title }}</span>
+                                    {% render 'icon-caret' %}
+                                </div>
+                                <div class="megamenu-item">
+                                    <div class="links-side">
+                                        {% for child_link in link.links %}
+                                            <div class="links-block">
+                                                <a href="{{ child_link.url }}" class="title-link">{{ child_link.title }}</a>
+                                                {% if child_link.links != blank %}
+                                                    <ul class="last-links">
+                                                        {% for child_child_link in child_link.links %}
+                                                            <li>
+                                                                <a href="{{ child_child_link.url }}">{{ child_child_link.title }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% assign menu_images = section.blocks | where: 'type', 'menu_image' %}
+                                    {% if menu_images.size > 0 %}
+                                        {% for block in menu_images %}
+                                            {% if block.settings.key == link.title %}
+                                                <div class="image-side">
+                                                    {% if block.settings.btn_show %}
+                                                        {{ block.settings.image | image_url: width: 300 | image_tag: class: 'menu-image' }}
+                                                        <a href="{{ block.settings.link }}" class="button">{{ block.settings.btn_label }}</a>
+                                                    {% else %}
+                                                        <a href="{{ block.settings.link }}" class="overlay-link">
+                                                            {{ block.settings.image | image_url: width: 300 | image_tag: class: 'menu-image' }}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <a class="link-item" href="{{ link.url }}">
+                                    {% assign title = link.title | handleize %}
+                                    {% if shop.metaobjects.navigation_icons[title].image.value != blank %}
+                                        {{ shop.metaobjects.navigation_icons[title].image.value | image_url: width: 20 | image_tag }}
+                                    {% endif %}
+                                    <span class="title">{{ link.title }}</span>
+                                    {% render 'icon-caret' %}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="text-block">
+                {% if section.settings.title != blank %}
+                    <h2 class="title">
+                        {{ section.settings.title }}
+                    </h2>
+                {% endif %}
+                {% if section.settings.subtitle != blank %}
+                    <div class="subtitle">
+                        {{ section.settings.subtitle }}
+                    </div>
+                {% endif %}
+                {% if section.settings.btn_label != blank and section.settings.btn_link != blank %}
+                    <a href="{{ section.settings.btn_link }}" class="text-block__button">{{ section.settings.btn_label }}</a>
+                {% endif %}
+            </div>
+            {% if section.settings.hero_image != blank %}
+                <div class="hero-image-wrapper">
+                    {{ section.settings.hero_image | image_url: width: 1000 | image_tag }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="page-width page-width--categories">
+        {% assign categories = section.blocks | where: 'type', 'category' %}
+        {% if categories.size > 0 %}
+            <div class="categories">
+                {% for block in categories %}
+                    <div class="category {% if block.settings.big_block %}big-block{% endif %}" style="background-color: {{ block.settings.background_color }};">
+                        <div class="image-wrapper">
+                            {% if block.settings.image != blank %}
+                                {{ block.settings.image | image_url: width: block.settings.image.width | image_tag }}
+                            {% else %}
+                                {{ block.settings.collection.featured_image | image_url: width: block.settings.collection.featured_image.width | image_tag }}
+                            {% endif %}
+                        </div>
+                        <div class="text-side">
+                            <p class="title">
+                                {% if block.settings.title != blank %}
+                                    {{ block.settings.title }}
+                                {% else %}
+                                    {{ block.settings.collection.title }}
+                                {% endif %}
+                            </p>
+                            <a href="{{ block.settings.collection.url }}" class="link">See more</a>
+                        </div>
+                        <a class="overlay-link" href="{{ block.settings.collection.url }}"></a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <a href="/collections/all" class="button shop-all">Shop All Products</a>
+    </div>
+</div>
+<style>
+    .banner-inner{
+        background-image: url({{ section.settings.background | image_url: width: 2000 }});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        const links_items = document.querySelectorAll('.link-item')
+
+        links_items.forEach(el => {
+            el.addEventListener('click', ()=>{
+                if(el.nextSibling.nextSibling){
+                    links_items.forEach(element => {
+                        if(element.nextSibling.nextSibling && el != element){
+                            element.classList.remove('active')
+                            element.nextSibling.nextSibling.classList.remove('active')
+                        }
+                    })
+    
+                    if(el.classList.contains('active')){
+                        el.classList.remove('active')
+                        el.nextSibling.nextSibling.classList.remove('active')
+                    }else{
+                        el.classList.add('active')
+                        el.nextSibling.nextSibling.classList.add('active')
+                    }
+                }
+            })
+        })
+    })
+</script>
+{% schema %}
+{
+  "name": "Banner + category blocks",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background image"
+    },
+    {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero image"
+    },
+    {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+    },
+    {
+        "type": "inline_richtext",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "inline_richtext",
+        "id": "subtitle",
+        "label": "Subtitle"
+    },
+    {
+        "type": "text",
+        "id": "btn_label",
+        "label": "Button label"
+    },
+    {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Collection image"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color"
+        },
+        {
+            "type": "checkbox",
+            "id": "big_block",
+            "label": "Big block"
+        }
+      ]
+    },
+    {
+        "type": "menu_image",
+        "name": "Menu Image",
+        "settings": [
+          {
+            "type": "text",
+            "id": "key",
+            "label": "Navbar Item Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Image Link"
+          },
+          {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+          },
+          {
+            "type": "checkbox",
+            "id": "btn_show",
+            "label": "Button Show",
+            "info": "If unchecked, the link works for the whole image"
+          }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner + category blocks"
+    }
+  ]
+}
+{% endschema %}

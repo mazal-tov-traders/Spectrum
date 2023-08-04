@@ -22,16 +22,32 @@
             "share_label": "Share"
           }
         },
+        "breadcrumbs": {
+          "type": "breadcrumbs"
+        },
+        "tags": {
+          "type": "tags"
+        },
+        "signup": {
+          "type": "signup"
+        },
         "content": {
-          "type": "content"
+          "type": "content",
+          "settings": {
+          }
         }
       },
       "block_order": [
-        "featured_image",
+        "breadcrumbs",
         "title",
+        "featured_image",
+        "tags",
+        "content",
         "share",
-        "content"
-      ]
+        "signup"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [

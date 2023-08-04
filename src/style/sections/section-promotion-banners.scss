@@ -1,0 +1,9 @@
+@import '../mixins/media.scss';
+
+.section-promotion-banners {
+  .page-width {
+    @include sm-max {
+      padding: 0;
+    }
+  }
+}

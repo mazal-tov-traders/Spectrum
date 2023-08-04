@@ -1,8 +1,9 @@
 .quick-add {
   position: relative;
   grid-row-start: 4;
-  margin: 0 0 1rem;
+  margin: 0;
   z-index: 1;
+  height: fit-content;
 }
 
 .card--card .quick-add {
@@ -27,6 +28,11 @@
   opacity: 1;
   visibility: visible;
   z-index: 101;
+}
+
+.quick-add-modal .scroll-trigger.scroll-trigger {
+  animation: none;
+  opacity: 1;
 }
 
 .quick-add-modal__content {
@@ -167,7 +173,7 @@ quick-add-modal .product__column-sticky {
   quick-add-modal .product:not(.product--no-media) .product__info-wrapper {
     padding-left: 4rem;
     max-width: 54%;
-    width: calc(54% - var(--grid-desktop-horizontal-spacing) / 2)
+    width: calc(54% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   quick-add-modal .product--columns .product__media-item:not(.product__media-item--single):not(:only-child) {
@@ -195,9 +201,9 @@ quick-add-modal .product__title > a {
 
 quick-add-modal .product__title > a:hover {
   color: rgb(var(--color-foreground));
-  /* text-decoration: underline; */
-  /* text-underline-offset: 0.2rem;
-  text-decoration-thickness: 0.3rem; */
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-decoration-thickness: 0.3rem;
 }
 
 quick-add-modal .product-form__buttons {
@@ -205,9 +211,51 @@ quick-add-modal .product-form__buttons {
 }
 
 .quick-add__submit {
-  padding: 0.8rem;
+  padding: 7px 12px;
   min-width: 100%;
   box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+  background: #FFBF26;
+  min-height:auto!important;
+}
+
+.quick-add__submit:hover {
+  background: #fdcf64;
+}
+
+button:disabled.quick-add__submit {
+  background: #ECEFF1;
+}
+
+.button-textsold-out,
+.button-text{
+  display: flex;
+  align-items: center;
+}
+
+.button-textsold-out svg,
+.button-text svg{
+  margin-right: 8px;
+}
+
+.quick-add__submit::after {
+  content: none;
+}
+
+.quick-add__submit .button-text{
+  display: flex;
+  color: #363636;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.quick-add__submit .button-text svg{
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 quick-add-modal .product-media-container.constrain-height {

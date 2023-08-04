@@ -1,0 +1,25 @@
+@import '../mixins/media.scss';
+
+.field__input {
+  height: 4.8rem;
+}
+
+.field {
+  &:after {
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(174, 209, 234, var(--inputs-border-opacity));
+  }
+}
+
+.field__label {
+  color: #727272;
+  top: calc(1.3rem + var(--inputs-border-width));
+  white-space: nowrap;
+}
+
+.field__submit {
+
+  &:before,
+  &:after {
+    display: none;
+  }
+}

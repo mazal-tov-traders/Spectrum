@@ -1,0 +1,96 @@
+@import '../mixins/media.scss';
+
+.section-colllection-grid {
+  @include sm-max {
+    background: #F8FCFF;
+  }
+
+  .page-width {
+    overflow: hidden;
+  }
+
+  .products-slider:not(.swiper) {
+    .swiper-wrapper {
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(auto, auto);
+
+      @include xs {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+      }
+
+      @include xlg {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+      }
+
+      .grid__item {
+        max-width: none;
+
+        @include xs-max {
+          max-width: 100%;
+        }
+
+        &:first-child {
+          @include sm {
+            grid-column-start: span 2;
+          }
+
+          @include md {
+            grid-column-start: auto;
+            grid-row-start: span 2;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper {
+    position: relative;
+    overflow: visible;
+
+    &.swiper-horizontal {
+      padding: 0 0 2rem;
+    }
+
+    &.swiper-horizontal>.swiper-scrollbar,
+    .swiper-scrollbar.swiper-scrollbar-horizontal {
+      bottom: 0;
+      height: 4px;
+      left: 0;
+      width: 100%;
+    }
+
+    .swiper-wrapper {
+      &.grid {
+        column-gap: 0;
+        flex-wrap: nowrap;
+        margin: 0;
+        row-gap: 0;
+
+        .grid__item {
+          box-sizing: border-box;
+          flex-grow: 0;
+          max-width: none !important;
+        }
+      }
+    }
+
+    .swiper-scrollbar {
+      border-radius: 2px;
+      background: #fff;
+
+      .swiper-scrollbar-drag {
+        background: #006BB7;
+        border-radius: 2;
+        display: block;
+      }
+    }
+  }
+
+  .card--horizontal-large {
+    height: 100%;
+  }
+}

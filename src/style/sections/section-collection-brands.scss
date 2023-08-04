@@ -1,0 +1,76 @@
+@import '../mixins/media.scss';
+
+$grid-mobile-horizontal-spacing: 1rem;
+$grid-desktop-horizontal-spacing: 2rem;
+
+.section-collection-brands {
+  &.loaded {
+    .collection__buttons {
+      display: none !important;
+    }
+  }
+
+  .brands-grid {
+    margin-top: 0;
+  }
+
+  .collection__buttons {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 2rem 0 0;
+    &.show {
+      display: flex;
+    }
+
+    @include md {
+      margin: 4rem 0 0;
+    }
+
+    a:not(.button) {
+      font-weight: 600;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.brand-tile {
+  background: #fff;
+  border: 1px solid #AED1EA;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+  padding: 1.6rem;
+
+  &:empty {
+    display: block;
+  }
+
+  @include md {
+    height: 90px;
+  }
+
+  &:hover {
+    background: #E4F2F8;
+  }
+
+  img {
+    height: 100%;
+    max-height: 50px;
+    max-width: 187px;
+    object-fit: contain;
+    width: 100%;
+  }
+}

@@ -2,12 +2,25 @@
   "sections": {
     "main": {
       "type": "main-blog",
+      "blocks": {
+        "d34b38af-b9e9-4b51-b5b3-01a016d8e755": {
+          "type": "article",
+          "settings": {
+            "blog_post": "blog\/2-tips-for-troubleshooting-common-printer-issues"
+          }
+        },
+        "95211cff-5650-493b-8dcd-ba055a906cf9": {
+          "type": "article",
+          "settings": {
+            "blog_post": "blog\/choosing-the-right-printer-for-your-home-or-office"
+          }
+        }
+      },
+      "block_order": [
+        "d34b38af-b9e9-4b51-b5b3-01a016d8e755",
+        "95211cff-5650-493b-8dcd-ba055a906cf9"
+      ],
       "settings": {
-        "layout": "collage",
-        "show_image": true,
-        "image_height": "medium",
-        "show_date": true,
-        "show_author": false,
         "padding_top": 36,
         "padding_bottom": 36
       }

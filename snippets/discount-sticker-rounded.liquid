@@ -1,0 +1,15 @@
+{% comment %}
+  percent - from custom price snippet
+  size - 'small' or 'large'
+{% endcomment %}
+
+
+<div class="promotion-banner__sticker promotion-banner__sticker--{{ size }}">
+  <div class="promotion-banner__sticker-circle"
+        style="background-color: #F25140;"
+  ></div>
+  <div class="promotion-banner__sticker-content"
+        style="color: #fff">
+    {{ 'products.product.get_up' | t }} <strong>-{{ percent }}%</strong>
+  </div>
+</div>

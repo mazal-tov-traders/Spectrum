@@ -35,16 +35,16 @@
   }
 }
 
-/* .path {
+.path {
   stroke-dasharray: 280;
   stroke-dashoffset: 0;
   transform-origin: center;
   stroke: rgb(var(--color-foreground));
   animation: dash 1.4s ease-in-out infinite;
-} */
+}
 
 @media screen and (forced-colors: active) {
-  .path{
+  .path {
     stroke: CanvasText;
   }
 }

@@ -15,10 +15,14 @@ class CartNotification extends HTMLElement {
   open() {
     this.notification.classList.add('animate', 'active');
 
-    this.notification.addEventListener('transitionend', () => {
-      this.notification.focus();
-      trapFocus(this.notification);
-    }, { once: true });
+    this.notification.addEventListener(
+      'transitionend',
+      () => {
+        this.notification.focus();
+        trapFocus(this.notification);
+      },
+      { once: true }
+    );
 
     document.body.addEventListener('click', this.onBodyClick);
   }
@@ -31,14 +35,18 @@ class CartNotification extends HTMLElement {
   }
 
   renderContents(parsedState) {
-      this.cartItemKey = parsedState.key;
-      this.getSectionsToRender().forEach((section => {
-        document.getElementById(section.id).innerHTML =
-          this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
-      }));
+    this.cartItemKey = parsedState.key;
+    this.getSectionsToRender().forEach((section) => {
+      document.getElementById(section.id).innerHTML = this.getSectionInnerHTML(
+        parsedState.sections[section.id],
+        section.selector
+      );
+    });
 
-      if (this.header) this.header.reveal();
-      this.open();
+    this.changeContent();
+
+    if (this.header) this.header.reveal();
+    this.open();
   }
 
   getSectionsToRender() {
@@ -48,18 +56,16 @@ class CartNotification extends HTMLElement {
         selector: `[id="cart-notification-product-${this.cartItemKey}"]`,
       },
       {
-        id: 'cart-notification-button'
+        id: 'cart-notification-button',
       },
       {
-        id: 'cart-icon-bubble'
-      }
+        id: 'cart-icon-bubble',
+      },
     ];
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
-    return new DOMParser()
-      .parseFromString(html, 'text/html')
-      .querySelector(selector).innerHTML;
+    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
   }
 
   handleBodyClick(evt) {
@@ -69,6 +75,23 @@ class CartNotification extends HTMLElement {
       this.activeElement = disclosure ? disclosure.querySelector('summary') : null;
       this.close();
     }
+  }
+
+  changeContent() {
+    const headerItems = document.querySelector(".js-count-items");
+    const headerTotalPrice = document.querySelector(".js-header-price");
+
+    fetch('/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      let total = Shopify.formatMoney(data.total_price).replace('$', currentCurrency);
+
+      headerItems.textContent = data.item_count;
+      headerTotalPrice.textContent = total;
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   setActiveElement(element) {

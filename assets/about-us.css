@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap");
+
+.custom-dropdown {
+  position: relative;
+}
+
+.custom-dropdown .selected-item {
+  cursor: pointer;
+}
+
+.custom-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.custom-dropdown .dropdown-item {
+  cursor: pointer;
+}
+
+.tabs-header.mobile {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 500;
+  color: #363636;
+}
+.dropdown-item.selected {
+  display: none !important;
+}
+.dropdown-menu {
+  display: none;
+}
+.tabs-header.mobile {
+  display: none;
+}
+.tabs-content__item {
+  display: none;
+}
+.tabs-content__item.active {
+  display: block;
+}
+.selected-item {
+  padding: 9px 34px 11px 55px;
+  background-color: #eaf6ff;
+  color: #006bb7;
+  border-radius: 30px 30px 0 0;
+}
+.dropdown-item {
+  padding: 7px 30px 7px 55px;
+  border-bottom: 1px solid #e4f2f8;
+  letter-spacing: -0.85px;
+}
+.dropdown-menu {
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item:hover {
+  background-color: #eaf6ff;
+}
+
+.about-us {
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: -63.9rem;
+  margin-bottom: 100px;
+}
+.about-us__title {
+  font-family: "poppins";
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 44px;
+}
+
+.tab-trigger {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 500;
+  color: #363636;
+  padding: 11px 30px 11px 30px;
+  background-color: #fff;
+  border-radius: 30px 30px 0 0;
+  cursor: pointer;
+  margin-right: -6px;
+}
+.tab-trigger.active {
+  background-color: #eaf6ff;
+  border-radius: 30px 30px 0 0;
+  padding: 11px 30px 11px 30px;
+  color: #006bb7;
+}
+
+.section-About_company {
+  max-width: 1300px;
+  border: 1px solid #e4f2f8;
+  background-color: #fff;
+  border-radius: 0px 3px 3px 3px;
+}
+
+.About_compan__wrapper {
+  display: flex;
+  padding: 60px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+.about-us__img {
+  width: 46.5%;
+  object-fit: fill;
+}
+.About_compan__wrapper_description {
+  width: 49.2%;
+}
+.About_company_title {
+  font-family: "poppins";
+  font-size: 30px;
+  font-weight: 600;
+  color: #363636;
+  margin-bottom: 16px;
+}
+.About_company_text1 {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 400;
+  color: #363636;
+  padding-bottom: 40px;
+  line-height: 30px;
+}
+.About_company_text1 strong {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 500;
+  color: #02406c;
+}
+.About_company_text2 {
+  font-family: "poppins";
+    font-size: 18px;
+    font-weight: 400;
+    color: #363636;
+    padding-top: 2px;
+    padding-bottom: 20px;
+}
+.About_company_text3 {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 500;
+  color: #02406c;
+  font-style: italic;
+  padding-left: 6px;
+}
+
+.custom-dropdown.active .tabs-header__mob-svg svg {
+  transform: rotate(0deg);
+}
+.custom-dropdown__svg{
+  transform: rotate(180deg);
+}
+
+.tabs-header__mob-svg {
+  position: absolute;
+  right: 6.4%;
+  top: 6px;
+ 
+}
+
+.Contact_Information__wrapper {
+  max-width: 1300px;
+  border: 1px solid #e4f2f8;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.Contact_Information__content {
+  max-width: 435px;
+  width: 100%;
+}
+.Contact_Information__title {
+  font-family: "poppins";
+  font-size: 30px;
+  font-weight: 600;
+  color: #363636;
+  letter-spacing: 0;
+  padding-top: 9px;
+}
+.Contact_Information__description {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 400;
+  color: #363636;
+  line-height: 27px;
+  padding-right: 10px;
+  margin-bottom: 39px;
+  letter-spacing: 0px;
+}
+
+.opening-hours__title {
+  font-family: "poppins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #02406c;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+.map-pointer__title svg {
+  margin-right: 10px;
+}
+.phone__title svg {
+  margin-right: 10px;
+}
+.opening-hours__title svg {
+  margin-right: 9px;
+}
+.phone__title {
+  font-family: "poppins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #02406c;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.map-pointer__title {
+  font-family: "poppins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #02406c;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  letter-spacing: 0.4px;
+}
+.opening-hours__description,
+.map-pointer__description {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 400;
+  color: #363636;
+  padding-left: 30px;
+  line-height: 27px;
+  margin-top: 5px;
+}
+.map-pointer__description p{
+  margin-top: 5px;
+}
+
+.opening-hours__description p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  font-family: "poppins";
+  margin: 0px;
+}
+.phone__wraper {
+  margin-top: 18px;
+}
+.phone__number p {
+  font-family: "poppins";
+  font-size: 18px;
+  font-weight: 400;
+  color: #363636;
+  padding-left: 29px;
+  margin-top: 4px;
+}
+.component-location__maps {
+  width: 100%;
+  max-width: 100%;
+}
+.map-pointer_wrapper{
+
+}
+.about-us__img-contact-inf {
+  width: 100%;
+  padding-bottom: 22px;
+  max-width: 100%;
+}
+.component-location__maps iframe {
+  max-width: 100%;
+  width: 100%;
+}
+
+.component-location__media-i {
+  max-width: 800px;
+}
+.Contact_Information__content {
+  max-width: 800px;
+}
+
+.about-us .tabs-content__wrapper {
+  clear: both;
+}
+.tabs-header.desctop {
+  height: 37px;
+  
+}
+.tabs-header.desctop .tab-trigger{
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+}
+a:not(.button):hover {
+  text-decoration: none;
+}
+@media (max-width: 1360px) {
+  .tab-trigger {
+    font-size: 16px;
+    padding: 7px 22px 7px 22px;
+  }
+  .tab-trigger.active {
+    padding: 7px 22px 7px 22px;
+  }
+
+  .About_compan__wrapper {
+    flex-direction: column;
+    padding: 30px 20px 20px 20px;
+  }
+  .about-us__img {
+    width: 100%;
+    object-fit: fill;
+  }
+  .About_compan__wrapper_description {
+    width: 100%;
+  }
+  .Contact_Information__wrapper {
+    padding: 30px 20px 20px 20px;
+  }
+  .tabs-header.desctop {
+    height: 30px;
+  }
+}
+
+@media (max-width: 1160px) {
+  .tab-trigger {
+    font-size: 15px;
+    padding: 6px 15px 6px 15px;
+    border-radius: 23px 23px 0 0;
+  }
+
+  .tab-trigger.active {
+    font-size: 15px;
+    padding: 6px 15px 6px 15px;
+    border-radius: 23px 23px 0 0;
+  }
+  .tabs-header.desctop {
+    height: 28px;
+  }
+}
+@media (max-width: 1024px) {
+  .tabs-header.mobile {
+    display: block;
+  }
+  .tabs-header.desctop {
+    display: none;
+    height: 50px;
+  }
+  .section-About_company {
+    border-radius: 0;
+  }
+  .tabs-header.mobile .selected-item{
+    letter-spacing: -0.8px;
+  }
+  
+  
+}
+@media (min-width: 1000px) {
+  .Contact_Information__content {
+    width: calc(41% - 11px);
+  }
+  .component-location__media-i {
+    width: calc(59% - 19px);
+  }
+}
+@media (max-width: 750px) {
+  .about-us {
+    margin-top: -33rem;
+  }
+  .tabs-header.mobile {
+    font-size: 16px;
+  }
+  .selected-item {
+    padding: 11px 30px 11px 27px;
+  }
+  .dropdown-item {
+    padding: 11px 30px 11px 27px;
+  }
+  .tabs-header__mob-svg {
+    right: 8%;
+  }
+}
+@media (max-width: 750px) {
+  .About_company_title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .About_company_text1 {
+    font-size: 16px;
+  }
+  .Contact_Information__title {
+    font-size: 24px;
+  }
+  .Contact_Information__description {
+    font-size: 16px;
+  }
+}

@@ -49,22 +49,7 @@
             "share_label": "Share"
           }
         },
-        "75b53660-0548-4098-8171-443c9774f0b0": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-            "stars_fill_color": "#e2da18",
-            "star_size": 21,
-            "text_align": "flex-start",
-            "product": "{{product}}",
-            "stars_text_empty": "No reviews"
-          }
-        },
-        "62fee9c3-1add-47dd-b25e-23625ca27857": {
-          "type": "shopify:\/\/apps\/ali-reviews-product-reviews\/blocks\/widget-star-rating\/bf2eea72-0400-4db1-8908-44b7418f9a88",
-          "settings": {
-          }
-        },
-        "judgeme_preview_badge_product_page_a6e09949": {
+        "judgeme_preview_badge_product_page_96aac4bd": {
           "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
           }
@@ -74,18 +59,16 @@
         "vendor",
         "title",
         "price",
-        "judgeme_preview_badge_product_page_a6e09949",
+        "judgeme_preview_badge_product_page_96aac4bd",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "75b53660-0548-4098-8171-443c9774f0b0",
-        "62fee9c3-1add-47dd-b25e-23625ca27857"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "media_size": "small",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",
@@ -98,12 +81,6 @@
         "padding_bottom": 12
       }
     },
-    "alireviews-section-ff02a4b6-3395-4b60-9256-ecf81c89655d": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -113,6 +90,7 @@
         "columns_desktop": 4,
         "color_scheme": "background-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
@@ -121,38 +99,17 @@
         "padding_bottom": 28
       }
     },
-    "judgeme_section_review_widget_7ad8": {
+    "judgeme_section_review_widget_982c": {
       "type": "apps",
       "blocks": {
-        "judgeme_review_widget_ba3bf7cd": {
+        "judgeme_review_widget_c1f176b4": {
           "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
           }
         }
       },
       "block_order": [
-        "judgeme_review_widget_ba3bf7cd"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "alireviews-section-17886469-eafd-4afa-84e3-4f6770b83017": {
-      "type": "apps",
-      "blocks": {
-        "42502bc2-26ff-4d3a-aa3e-c209df9cad71": {
-          "type": "shopify:\/\/apps\/ali-reviews-product-reviews\/blocks\/widget-box\/bf2eea72-0400-4db1-8908-44b7418f9a88",
-          "settings": {
-            "name": "Review Box",
-            "vertical_alignment": "2",
-            "rating_color": "#1F1F1F",
-            "section_color": "#ffffff",
-            "primary_text_color": "#1F1F1F"
-          }
-        }
-      },
-      "block_order": [
-        "42502bc2-26ff-4d3a-aa3e-c209df9cad71"
+        "judgeme_review_widget_c1f176b4"
       ],
       "settings": {
         "include_margins": true
@@ -161,9 +118,7 @@
   },
   "order": [
     "main",
-    "alireviews-section-17886469-eafd-4afa-84e3-4f6770b83017",
-    "judgeme_section_review_widget_7ad8",
-    "alireviews-section-ff02a4b6-3395-4b60-9256-ecf81c89655d",
+    "judgeme_section_review_widget_982c",
     "related-products"
   ]
 }

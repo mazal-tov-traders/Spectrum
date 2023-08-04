@@ -1,0 +1,241 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+    {%- if section.settings.title != blank -%}
+      <h2 class="title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank
+      or section.settings.show_description
+      and section.settings.collection.description != empty
+    -%}
+      <div class="collection__description {{ section.settings.description_style }} rte">
+        {%- if section.settings.show_description -%}
+          {{ section.settings.collection.description }}
+        {%- else -%}
+          {{ section.settings.description -}}
+        {%- endif %}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="page-width">
+    <ul
+      class="grid brands-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+      role="list"
+    >
+    </ul>
+  </div>
+
+  {%- if section.settings.show_view_all -%}
+    <div class="collection__buttons">
+      <a id="show-more" data-show-desktop="8" data-show-mobile="4" href="pages/brands">{{ 'sections.featured_brands.view_all' | t }}</a>
+    </div>
+  {%- endif -%}
+
+  <script>
+    let button = document.getElementById('show-more');
+    let buttonParent = button.closest('.collection__buttons');
+    let timeout = false;
+    let delay = 2000;
+    
+    function fetchData(button = button, shortView = true) {
+      let buttonURL = button.getAttribute('href');
+      let url = "{{ shop.url }}/" + buttonURL;
+
+      fetch(url)
+        .then((response) => response.text())
+        .then((responseText) => {
+          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const gridFuture = html.querySelector('.brands-grid');
+          const gridCurrent = document.querySelector('.brands-grid');
+          let mobileQuantity = button.dataset.showMobile;
+          let desktopQuantity = button.dataset.showDesktop;
+          let gridElements = gridFuture.querySelectorAll('.grid__item');
+          let gridLength = gridElements.length;
+          let breakpoint = 750;
+
+          switch (shortView) {
+            case true:
+              if (window.innerWidth <= breakpoint) {
+                for (let i = mobileQuantity; i < gridLength; i++) {
+                  gridElements[i].innerHTML = '';
+                  gridElements[i].outerHTML = '';
+                }
+    
+              } else {
+                for (let i = desktopQuantity; i < gridLength; i++) {
+                  gridElements[i].innerHTML = '';
+                  gridElements[i].outerHTML = '';
+                }
+              }
+                
+              gridCurrent.innerHTML = gridFuture.innerHTML;
+              break;
+            case false:
+              gridCurrent.innerHTML = gridFuture.innerHTML;
+              document.querySelector('.brands-grid').closest('section').classList.add('loaded');
+              break;
+          }
+
+          if ((gridLength > desktopQuantity) && (window.innerWidth > breakpoint)) {
+            button.closest('.collection__buttons').classList.add('show');
+          } else if ((gridLength > mobileQuantity) && (window.innerWidth <= breakpoint)) {
+            button.closest('.collection__buttons').classList.add('show');
+          } else {
+            button.closest('.collection__buttons').classList.remove('show');
+          }
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+
+    function showData(e) {
+      e.preventDefault ();
+      
+      button.innerHTML = "{{ 'accessibility.loading' | t }}";
+      fetchData(button, false);
+    }
+
+    
+    fetchData(button, true);
+    document.getElementById('show-more').addEventListener('click', showData);
+   
+    window.addEventListener('resize', () => {
+      clearTimeout(timeout);
+
+      timeout = setTimeout(function(){
+          fetchData(button, true);
+      }, delay)
+    });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.featured-brands.name",
+  "tag": "section",
+  "class": "section section-collection-brands",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Shop by Brand",
+      "label": "t:sections.featured-brands.settings.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-brands.settings.description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:sections.featured-brands.settings.show_description.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-brands.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-brands.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.featured-brands.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-brands.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-brands.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-brands.settings.show_view_all.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-brands.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.featured-brands.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.featured-brands.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.featured-brands.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-brands.presets.name"
+    }
+  ]
+}
+{% endschema %}

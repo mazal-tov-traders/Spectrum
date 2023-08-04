@@ -2,25 +2,88 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "5e06a112-b9e8-474c-bbf5-cb46ed0fde6f": {
+      "type": "newsletter",
+      "blocks": {
+        "sections--15860738031799__5e06a112-b9e8-474c-bbf5-cb46ed0fde6f-168898330943d6f41c-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up to receive news and special deals"
+          }
+        },
+        "bdcad714-e6be-4cce-9e59-52881b00fe4d": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "text": "<p>We will never spam or sell your email.<\/p>"
+          }
+        },
+        "sections--15860738031799__5e06a112-b9e8-474c-bbf5-cb46ed0fde6f-168898330943d6f41c-2": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "sections--15860738031799__5e06a112-b9e8-474c-bbf5-cb46ed0fde6f-168898330943d6f41c-0",
+        "bdcad714-e6be-4cce-9e59-52881b00fe4d",
+        "sections--15860738031799__5e06a112-b9e8-474c-bbf5-cb46ed0fde6f-168898330943d6f41c-2"
+      ],
+      "settings": {
+        "section_bg_mobile": "shopify:\/\/shop_images\/Rectangle_4133681.png",
+        "section_bg_desktop": "shopify:\/\/shop_images\/Rectangle_4133681.jpg",
+        "section_color": "#ffffff",
+        "background_full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "d58f0687-df39-4a3f-9618-f83446080fb8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IS-logo-footer_1.png"
+          }
+        },
+        "36fe4cff-b9c8-42a3-826d-f6157246339f": {
+          "type": "award",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GQJtwN_vrsIO4UcwJYeVpGmZRgevd4Mo2g-removebg-preview-2_1.png"
+          }
+        },
+        "56ecac62-4181-44c1-ab7d-f7bd0af7031b": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "footer"
+          }
+        },
+        "dffe9076-6bee-41fe-b729-e2d8ab6ba846": {
+          "type": "contact",
+          "settings": {
+            "content": "<h3>Our showroom is open<\/h3><p>Monday to Thursday 8:00 AM - 5:30 PM<br\/>Friday 8:00 AM - 5:00 PM Central<\/p><h3>Phone<\/h3><p><a href=\"tel:214-342-9290\" target=\"_blank\" title=\"tel:214-342-9290\">214-342-9290<\/a><\/p><h3>Imaging Spectrum Inc.<\/h3><p>1101 Summit Ave.<br\/>Plano, TX 75074<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d58f0687-df39-4a3f-9618-f83446080fb8",
+        "36fe4cff-b9c8-42a3-826d-f6157246339f",
+        "56ecac62-4181-44c1-ab7d-f7bd0af7031b",
+        "dffe9076-6bee-41fe-b729-e2d8ab6ba846"
+      ],
       "settings": {
-        "color_scheme": "background-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
         "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 36,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 60,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
+    "5e06a112-b9e8-474c-bbf5-cb46ed0fde6f",
     "footer"
   ]
 }

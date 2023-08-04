@@ -1,0 +1,330 @@
+{{ 'about-us.css' | asset_url | stylesheet_tag }}
+
+<section class="about-us page-width">
+  <div class="about-us__title">About Us</div>
+
+  <div id="about-us__tabs">
+    <div class="tabs-header desctop">
+      {% for block in section.blocks %}
+        <span id="tabs-trigger-{{forloop.index}}" class="tab-trigger" data-index="{{forloop.index}}">
+          {{- block.settings.trigger -}}
+        </span>
+      {% endfor %}
+    </div> 
+
+   
+    
+      <div class="tabs-header mobile">
+        <div class="custom-dropdown">
+          <span class="tabs-header__mob-svg">{% render 'icon-mini-arrow' %}</span>
+      
+          <div class="selected-item" id="tabs-trigger-mobile" style="display: block;"></div>
+          <div class="dropdown-menu" id="dropdown-menu-mobile">
+            {% for block in section.blocks %}
+              <div class="dropdown-item {% if forloop.index == selected_index %}selected{% endif %}" data-index="{{ forloop.index }}">{{ block.settings.trigger }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="tabs-content__wrapper">
+      {% for block in section.blocks %}
+        <div id="tabs-content-{{forloop.index}}" class="tabs-content__item">
+          {% case block.type %}
+            {% when 'About_Company' %}
+              <div class="section-About_company">
+                <div class="About_compan__wrapper">
+                  <img src="{{ block.settings.image_AIS | img_url: 'original' }}" alt="image_AIS" class="about-us__img">
+                  <div class="About_compan__wrapper_description">
+                    <div class="About_company_title">
+                      {{ block.settings.title }}
+                    </div>
+
+                    <div class="About_company_text1">
+                      {{ block.settings.text1 }}
+                    </div>
+
+                    <div class="About_company_text2">
+                      {{ block.settings.text2 }}
+                    </div>
+
+                    <div class="About_company_text3">
+                      {{ block.settings.text3 }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {% when 'Contact_Information' %}
+              <div class="section-Contact_Information block-container">
+                <div class="Contact_Information__wrapper">
+                  <div class="Contact_Information__content">
+                    <div class="Contact_Information__title">{{ block.settings.heading1 }}</div>
+
+                    <div class="Contact_Information__description">
+                      {{ block.settings.content1 }}
+                    </div>
+
+                    <div class="opening-hours__wrapper">
+                      <div class="opening-hours__title">
+                        {% render 'icon-clock' %}
+                        {{ block.settings.heading2 }}
+                      </div>
+                      <div class="opening-hours__description">
+                        <div>{{ block.settings.content2 }}</div>
+                      </div>
+                    </div>
+
+                    <div class="phone__wraper">
+                      <div class="phone__title">
+                        {% render 'icon-phone' %}
+                        {{ block.settings.heading3 }}
+                      </div>
+                      <a href="tel:2143429290" class="phone__number">{{ block.settings.content3 }}</a>
+                    </div>
+
+                    <div class="map-pointer_wrapper">
+                      <div class="map-pointer__title">
+                        {% render 'icon-map-pointer' %}
+                        <div>{{ block.settings.heading4 }}</div>
+                      </div>
+                      <div class="map-pointer__description">
+                        {{ block.settings.content4 }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-location__media-i">
+                    {% if block.settings.html != blank %}
+                      <img
+                        src="{{ block.settings.image_showroom | img_url:  'original'}}"
+                        alt="image_showroom"
+                        class="about-us__img-contact-inf"
+                      >
+                      <div class="component-location__maps">{{ block.settings.html }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+ <script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const tabTriggersDesktop = document.querySelectorAll('.tabs-header.desctop .tab-trigger');
+    const tabTriggerMobile = document.getElementById('tabs-trigger-mobile');
+    const tabContents = document.querySelectorAll('.tabs-content__item');
+    const customDropdown = document.querySelector('.custom-dropdown');
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    let selected_index = 1; 
+
+    dropdownItems[0].style.display = "none";
+
+    tabTriggerMobile.addEventListener("click", function() {
+      const dropdownMenuMobile = document.getElementById("dropdown-menu-mobile");
+      dropdownMenuMobile.style.display = dropdownMenuMobile.style.display === "block" ? "none" : "block";
+    });
+
+
+    dropdownItems.forEach(function(item) {
+      item.addEventListener("click", function() {
+        const clickedIndex = parseInt(item.dataset.index, 10);
+
+        if (selected_index !== clickedIndex) {
+
+          if (selected_index === 1) {
+            dropdownItems[0].style.display = "block";
+          }
+
+          selected_index = clickedIndex;
+          tabTriggerMobile.textContent = item.textContent;
+
+          dropdownItems.forEach(function(item) {
+            item.classList.remove("selected");
+          });
+          item.classList.add("selected");
+
+          const dropdownMenu = document.getElementById("dropdown-menu-mobile");
+          dropdownMenu.style.display = "none";
+
+        }
+      });
+    });
+
+    tabTriggersDesktop.forEach((trigger, index) => {
+      trigger.addEventListener('click', () => {
+        tabContents.forEach((content) => content.classList.remove('active'));
+        document.getElementById(`tabs-content-${index + 1}`).classList.add('active');
+
+        tabTriggersDesktop.forEach((t) => t.classList.remove('active'));
+        trigger.classList.add('active');
+
+        tabTriggerMobile.textContent = trigger.textContent;
+        selected_index = index + 1;
+        hideSelectedItem();
+      });
+    });
+
+    function hideSelectedItem() {
+      dropdownItems.forEach((item, index) => {
+        if (index + 1 === selected_index) {
+          item.classList.add('selected');
+        } else {
+          item.classList.remove('selected');
+        }
+      });
+    }
+
+    tabTriggersDesktop[0].classList.add('active');
+    tabContents[0].classList.add('active');
+
+    tabTriggerMobile.textContent = tabTriggersDesktop[0].textContent;
+
+    tabTriggerMobile.addEventListener('click', () => {
+      customDropdown.classList.toggle('active');
+    });
+
+    dropdownItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const clickedIndex = item.dataset.index;
+
+        tabContents.forEach((content) => content.classList.remove('active'));
+        document.getElementById(`tabs-content-${clickedIndex}`).classList.add('active');
+
+        tabTriggersDesktop.forEach((t) => t.classList.remove('active'));
+        tabTriggersDesktop[clickedIndex - 1].classList.add('active');
+
+        tabTriggerMobile.textContent = item.textContent;
+
+        customDropdown.classList.remove('active'); 
+      });
+    });
+  });
+</script>   
+
+
+
+
+{% schema %}
+{
+  "name": "about-us",
+  "class": "about-us",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "About_Company",
+      "name": "About Company",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Tab Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_AIS",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text1",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "Contact_Information",
+      "name": "Contact Information",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Tab Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_showroom",
+          "label": "Image Showroom"
+        },
+        {
+          "type": "html",
+          "id": "html",
+          "label": "Google maps"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading1",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content1",
+          "label": "Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading2",
+          "label": "Schedule Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content2",
+          "label": "Schedule Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading3",
+          "label": "Phone"
+        },
+        {
+          "type": "richtext",
+          "id": "content3",
+          "label": "Phone Numbert"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading4",
+          "label": "Address Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content4",
+          "label": "Address Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us"
+    }
+  ]
+}
+{% endschema %}

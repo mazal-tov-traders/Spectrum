@@ -1,0 +1,68 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+  - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+  - price_class: {String} Adds a price class to the price element (optional)
+
+  Usage:
+  {% render 'price', product: product %}
+{% endcomment %}
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 1999
+  assign available = target.available | default: false
+  assign money_price = price | money
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+-%}
+
+{% liquid
+  assign percent = compare_at_price | divided_by: 100.0
+  assign percent = price | divided_by: percent
+  assign percent = 100 | minus: percent | round: 1
+%}
+
+<div
+  class="
+    price
+    {%- if price_class %} {{ price_class }}{% endif -%}
+    {%- if available == false %} price--sold-out {% endif -%}
+    {%- if compare_at_price > price %} price--on-sale {% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if show_badges %} price--show-badge {% endif -%}
+    price--show-as-{{ show_as }}
+  "
+>
+  
+  {%- if show_badges -%}
+    {% case show_as %}
+      {% when 'none' %}
+      {% when 'price' %}
+        <span class="price-item price-item--sale price-item--last">
+          {{ money_price }}
+        </span>
+        <span class="badge price__badge-sale">
+          {% render 'icon-discount-custom' %} {{ 'products.product.save' | t }} <strong>{{ percent }}%</strong>
+        </span>
+      {% when 'sticker' %}
+        {% render 'discount-sticker-rounded', percent: percent, size: 'small' %}
+      {% else %}
+        Show discount as... is undefined
+    {% endcase %}
+
+    <span class="badge price__badge-sold-out">
+      {{ 'products.product.sold_out' | t }}
+    </span>
+  {%- endif -%}
+</div>

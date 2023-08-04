@@ -1,0 +1,10 @@
+{% if article.tags != blank %}
+  <ul class="article-template__tags list-unstyled">
+    {% for tag in article.tags -%}
+      <li class="article-template__tags-item">
+        {{ tag | link_to_tag: tag }}
+      </li>
+    {%- endfor %}
+  </ul>
+{% endif %}
+

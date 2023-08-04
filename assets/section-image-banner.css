@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost&family=Montserrat:ital,wght@0,700;1,500&family=Roboto:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Jost&family=Montserrat:ital,wght@0,700;1,500&display=swap');
-.banner__content .banner__box .banner__heading.inline-richtext.h1{
-  color: #574574;
-  font-family: 'Homemade Apple', cursive;
-  font-size: 77px;
-  font-weight: 400;
-  
-  letter-spacing: -4.5px;
-}
 .banner {
   display: flex;
   position: relative;
@@ -16,6 +6,11 @@
 
 .banner__box {
   text-align: center;
+}
+
+/* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
+.banner__box.gradient {
+  transform: perspective(0);
 }
 
 @media only screen and (max-width: 749px) {
@@ -33,7 +28,6 @@
     text-align: right;
   }
 
-  
   .banner--content-align-left .banner__box {
     text-align: left;
   }
@@ -153,7 +147,6 @@
 }
 
 .banner__media {
-  
   height: 100%;
   position: absolute;
   left: 0;
@@ -170,7 +163,25 @@
   left: auto;
 }
 
+.banner__media-half.animate--fixed:first-child > img {
+  width: 50%;
+}
+
+.banner__media-half.animate--fixed:nth-child(2) > img {
+  left: 50%;
+  width: 50%;
+}
+
 @media screen and (max-width: 749px) {
+  .banner--stacked .animate--fixed:first-child > img {
+    width: 100%;
+  }
+
+  .banner--stacked .banner__media-half.animate--fixed:nth-child(2) > img {
+    left: 0;
+    width: 100%;
+  }
+
   .banner--stacked .banner__media-half {
     width: 100%;
   }
@@ -182,7 +193,7 @@
 
 @media screen and (min-width: 750px) {
   .banner__media {
-    /* height: 100%; */
+    height: 100%;
   }
 }
 
@@ -199,14 +210,10 @@
 
   .banner--stacked.banner--adapt .banner__content {
     height: auto;
-    
   }
 
   .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {
     background: transparent;
-    --color-foreground: 255, 255, 255;
-    --color-button: 255, 255, 255;
-    --color-button-text: 0, 0, 0;
   }
 
   .banner:not(.banner--mobile-bottom) .banner__box {
@@ -216,13 +223,10 @@
   }
 
   .banner:not(.banner--mobile-bottom) .button--secondary {
-    --color-button: 255, 255, 255;
-    --color-button-text: 255, 255, 255;
     --alpha-button-background: 0;
   }
 
-  .banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt)
-    .banner__content {
+  .banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
     position: absolute;
     height: auto;
   }
@@ -247,7 +251,7 @@
 }
 
 .banner__content {
-  padding: 20px;
+  padding: 0;
   display: flex;
   position: relative;
   width: 100%;
@@ -312,13 +316,14 @@
     order: 2;
   }
 
-  .banner:not(.banner--mobile-bottom) .field__input {
-    background-color: transparent;
+  .banner:not(.banner--mobile-bottom) .field__input,
+  .banner--mobile-bottom:not(.banner--stacked) .banner__box.color-background-1 {
+    background: transparent;
   }
 }
 
 .banner__box {
-  /* padding: 4rem 3.5rem; */
+  padding: 4rem 3.5rem;
   position: relative;
   height: fit-content;
   align-items: center;
@@ -331,9 +336,6 @@
 @media screen and (min-width: 750px) {
   .banner--desktop-transparent .banner__box {
     background: transparent;
-    --color-foreground: 255, 255, 255;
-    --color-button: 255, 255, 255;
-    --color-button-text: 0, 0, 0;
     max-width: 89rem;
     border: none;
     border-radius: 0;
@@ -341,8 +343,6 @@
   }
 
   .banner--desktop-transparent .button--secondary {
-    --color-button: 255, 255, 255;
-    --color-button-text: 255, 255, 255;
     --alpha-button-background: 0;
   }
 
@@ -371,21 +371,21 @@
 }
 
 .banner__box > * + .banner__text {
-  
+  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 750px) {
   .banner__box > * + .banner__text {
-   
+    margin-top: 2rem;
   }
 }
 
 .banner__box > * + * {
- 
+  margin-top: 1rem;
 }
 
 .banner__box > *:first-child {
- 
+  margin-top: 0;
 }
 
 @media screen and (max-width: 749px) {
@@ -410,16 +410,10 @@
 
 .banner__heading {
   margin-bottom: 0;
-  color: #2d2d2d;
-    font-family: "Roboto", Sans-serif;
-    font-size: 55px;
-    font-weight: 300;
-    
-    letter-spacing: 5.8px;
 }
 
 .banner__box .banner__heading + * {
- 
+  margin-top: 1rem;
 }
 
 .banner__buttons {
@@ -428,7 +422,6 @@
   gap: 1rem;
   max-width: 45rem;
   word-break: break-word;
-  margin-top: 47px;
 }
 
 @media screen and (max-width: 749px) {
@@ -454,10 +447,7 @@
 }
 
 .banner__box > * + .banner__buttons {
-  
-  background-color: #574574;
-  height: 40px;
-    width: 150px;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -474,24 +464,4 @@
   .banner--desktop-transparent .rte a:hover {
     color: currentColor;
   }
-}
-@media (max-width: 750px) {
-  .banner__heading.inline-richtext{
-font-size: 22px;
-margin-top: 38px;
-  }
-  .banner__text.rte.subtitle{
-    font-size: 18px;
-    line-height: 1.2;
-  }
-  .banner__content .banner__box .banner__heading.inline-richtext.h1 {
-    font-size: 2em;
-    line-height: normal;
-  }
- 
-.banner__text.rte.subtitle{
-  margin-top: 49px;
-}
-
-    
 }

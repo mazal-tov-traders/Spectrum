@@ -8,6 +8,10 @@
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
 <style>
@@ -15,14 +19,15 @@
     margin-bottom: 3rem;
   }
 
- .template-search__search {
+  .template-search__search {
     margin: 0 auto 3.5rem;
     max-width: 74.1rem;
   }
 
   .template-search__search .search {
     margin-top: 3rem;
-  } 
+  }
+
   .template-search--empty {
     padding-bottom: 18rem;
   }
@@ -60,7 +65,7 @@
 
 {% paginate search.results by 24 %}
   <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
-    <div class="template-search__header page-width">
+    <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       <h1 class="h2 center">
         {%- if search.performed -%}
           {{- 'templates.search.title' | t -}}
@@ -68,7 +73,6 @@
           {{- 'general.search.search' | t -}}
         {%- endif -%}
       </h1>
-      
       <div class="template-search__search">
         {%- if settings.predictive_search_enabled -%}
           <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
@@ -207,20 +211,24 @@
           {%- else -%}
             <div class="template-search__results collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
               <div class="loading-overlay gradient"></div>
-              <ul data-section-id="{% if section.id %}{{section.id}}{% endif %}" data-sectionId="{% if section.id %}{{section.id}}{% endif %}" {% if section.blocks %}data-blocks='{ {%- capture blocks_json -%}{% for block in section.blocks %}{%- capture block_json -%}"{{ block.type }}":{{ block.settings | json }}{%- endcapture -%}{{ block_json | prepend: ","  }}{% endfor %}{%- endcapture -%}{{ blocks_json | remove_first: "," }} }' {% endif %} data-settings='{% if section.settings %}{{section.settings | json}}{% endif %}' data-globo-filter-items class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
+              <ul class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
                 {%- for item in search.results -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
 
-                  <li class="grid__item">
+                  <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                    {% endif %}>
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
                         {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
                         {% render 'card-product',
                           card_product: item,
                           media_aspect_ratio: section.settings.image_ratio,
+                          image_shape: section.settings.image_shape,
                           show_secondary_image: section.settings.show_secondary_image,
                           show_vendor: section.settings.show_vendor,
                           show_rating: section.settings.show_rating,
@@ -248,7 +256,7 @@
                                 </h3>
                               </div>
                               <div class="card__badge {{ settings.badge_position }}">
-                                <span class="badge color-background-1">{{ 'templates.search.page' | t }}</span>
+                                <span class="badge color-{{ settings.color_schemes | first }}">{{ 'templates.search.page' | t }}</span>
                               </div>
                             </div>
                           </div>
@@ -267,6 +275,9 @@
     {%- endif -%}
   </div>
 {% endpaginate %}
+{% if section.settings.image_shape == 'arch' %}
+  {% render 'mask-arch' %}
+{%- endif -%}
 
 {% schema %}
 {
@@ -306,6 +317,47 @@
       ],
       "default": "adapt",
       "label": "t:sections.main-search.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.image_shape.options__1.label"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.all.image_shape.options__2.label"
+        },
+        {
+          "value": "blob",
+          "label": "t:sections.all.image_shape.options__3.label"
+        },
+        {
+          "value": "chevronleft",
+          "label": "t:sections.all.image_shape.options__4.label"
+        },
+        {
+          "value": "chevronright",
+          "label": "t:sections.all.image_shape.options__5.label"
+        },
+        {
+          "value": "diamond",
+          "label": "t:sections.all.image_shape.options__6.label"
+        },
+        {
+          "value": "parallelogram",
+          "label": "t:sections.all.image_shape.options__7.label"
+        },
+        {
+          "value": "round",
+          "label": "t:sections.all.image_shape.options__8.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label",
+      "info": "t:sections.all.image_shape.info"
     },
     {
       "type": "checkbox",

@@ -1,0 +1,113 @@
+<div class="custom-announcement-bar">
+    <div class="page-width">
+        <div class="custom-announcement-bar__wrap">
+            <div class="custom-announcement-bar__nav">
+                <ul class="custom-announcement-bar__nav-list">
+                    {%- for link in section.settings.menu.links -%}
+                        <li class="custom-announcement-bar__nav-item">
+                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            {% if section.settings.main_text != blank %}
+                <div class="custom-announcement-bar__main">
+                    <div class="custom-announcement-bar__main-icon">
+                        {{ section.settings.main_svg }}
+                    </div>
+                    <div class="custom-announcement-bar__main-text">
+                        {{ section.settings.main_text }}
+                        {% if section.settings.show_info %}
+                            <div class="custom-announcement-bar__main-text--info-icon">
+                                {% render 'icon-info' %}
+                            </div>
+                            {% if section.settings.main_text_info != blank %}
+                                <div class="custom-announcement-bar__main-text--info-text">
+                                    {{ section.settings.main_text_info }}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="custom-announcement-bar__link">
+                {% if section.settings.tel != blank %}
+                    <a href="tel:+{{ section.settings.tel }}" class="custom-announcement-bar__link-tel">
+                        <div class="custom-announcement-bar__link-icon">
+                            {{ section.settings.tel_svg }}
+                        </div>
+                        <div>{{ section.settings.tel }}</div>
+                    </a>
+                {% endif %}
+                {% if section.settings.account_text != blank %}
+                    <a href="/account" class="custom-announcement-bar__link-account">
+                        <div class="custom-announcement-bar__link-icon">
+                            {{ section.settings.account_svg }}
+                        </div>
+                        <div>{{ section.settings.account_text }}</div>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+      "name": "custom announcement",
+      "class": "custom-announcement-bar-section",
+      "settings": [
+        { 
+          "type":"text",
+          "id":"main_text",
+          "label":"Text Main",
+          "default": "Free Shipping on orders over $149"
+        },
+        { 
+          "type":"html",
+          "id":"main_svg",
+          "label":"Main Svg"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_info",
+          "default": true,
+          "label": "Show info icon n text"
+        },
+        { 
+          "type":"text",
+          "id":"main_text_info",
+          "label":"Text Main Info Hover",
+          "default": "Some of our chemical products require $1,500 for free shipping"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "announcement navigation"
+        },
+        { 
+          "type":"text",
+          "id":"tel",
+          "label":"Phone number",
+          "default": "214-342-9290"
+        },
+        { 
+          "type":"html",
+          "id":"tel_svg",
+          "label":"Phone Svg"
+        },
+        { 
+          "type":"text",
+          "id":"account_text",
+          "label":"Text Account",
+          "default": "My Account"
+        },
+        { 
+          "type":"html",
+          "id":"account_svg",
+          "label":"Account Svg"
+        }
+      ]
+    }
+{% endschema %}

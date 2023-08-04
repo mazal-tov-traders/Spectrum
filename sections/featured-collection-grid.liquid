@@ -1,0 +1,309 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+  assign products_to_show = 5
+
+  if section.settings.collection.all_products_count > products_to_show
+    assign products_to_display = products_to_show
+    assign more_in_collection = true
+  endif
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = true
+-%}
+
+<div class="collection section-{{ section.id }}-padding">
+  <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+    {%- if section.settings.title != blank -%}
+      <h2 class="title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.title }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank
+      or section.settings.show_description
+      and section.settings.collection.description != empty
+    -%}
+      <div class="collection__description rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- if section.settings.show_description -%}
+          {{ section.settings.collection.description }}
+        {%- else -%}
+          {{ section.settings.description -}}
+        {%- endif %}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="page-width">
+    <div class="products-slider collection-slider--{{ section.id }}{% if show_mobile_slider %} swiper slider-{{ section.settings.collection.id }}{% endif %}">
+      <div
+          class="{% if show_mobile_slider %} swiper-wrapper{% endif %} grid product-grid contains-card contains-card--product contains-card--standard"
+      >
+        {%- for product in section.settings.collection.products limit: products_to_show -%}
+          <div
+            class="grid__item{% if show_mobile_slider %} swiper-slide{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            {% render 'card-product-vertical',
+              card_product: product,
+              media_aspect_ratio: 'adapt',
+              image_shape: 'default',
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: section.settings.enable_quick_add,
+              section_id: section.id
+            %}
+          </div>
+        {%- else -%}
+          {%- for i in (1..2) -%}
+            <div
+              class="grid__item{% if show_mobile_slider %} swiper-slide{% else %}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {%- assign placeholder_image = 'product-apparel-' | append: forloop.rindex -%}
+              {% render 'card-product',
+                show_vendor: section.settings.show_vendor,
+                placeholder_image: placeholder_image
+              %}
+            </div>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+      {% if show_mobile_slider %}
+        <div class="swiper-scrollbar"></div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if show_mobile_slider %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    let slider = document.querySelector('.slider-{{ section.settings.collection.id }}');
+
+    if (window.innerWidth < 750) {
+      document.addEventListener('DOMContentLoaded',  function() {
+        const swiper = new Swiper(slider, {
+                            slidesPerView: {{ section.settings.collection_slider_slidesperview_mobile }},
+                            speed: 400,
+                            spaceBetween: {{ section.settings.collection_slider_spacebetween_mobile }},
+                            scrollbar: {
+                              el: ".swiper-scrollbar",
+                            },
+                            breakpoints: {
+                              560: {
+                                slidesPerView: 2
+                              },
+                              750: {
+                                slidesPerView: 3
+                              },
+                              1100: {
+                                slidesPerView: 4,
+                                spaceBetween: 20
+                              },
+                            }
+                          });
+      });
+    } else {
+      slider.classList.remove('swiper');
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection-grid.name",
+  "tag": "section",
+  "class": "section section-colllection-grid",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Products you may be interested in",
+      "label": "t:sections.featured-collection-grid.settings.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection-grid.settings.description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:sections.featured-collection-grid.settings.show_description.label",
+      "default": false
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection-grid.settings.collection.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-collection-grid.settings.show_view_all.label"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection-grid.settings.view_all_style.label",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.featured-collection-grid.settings.view_all_style.options__1.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.featured-collection-grid.settings.view_all_style.options__2.label"
+        },
+        {
+          "value": "solid",
+          "label": "t:sections.featured-collection-grid.settings.view_all_style.options__3.label"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection-grid.settings.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.featured-collection-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.featured-collection-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "t:sections.featured-collection-grid.settings.show_rating.label",
+      "info": "t:sections.featured-collection-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": true,
+      "label": "t:sections.featured-collection-grid.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "range",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "id": "collection_slider_slidesperview_mobile",
+      "label": "Collection Slider Slides Per View",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "id": "collection_slider_spacebetween_mobile",
+      "label": "Collection Slider Space Between",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.margin.section_margin_heading"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.margin.margin_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.margin.margin_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection-grid.presets.name"
+    }
+  ]
+}
+{% endschema %}

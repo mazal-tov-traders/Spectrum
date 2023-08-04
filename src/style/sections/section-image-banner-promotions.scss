@@ -1,0 +1,126 @@
+@import "../mixins/media.scss";
+
+.section-banner-promotion {
+  position: relative;
+
+  .promotion-banner__sticker {
+    @include lg {
+      right: 3rem;
+    }
+  }
+}
+
+.promotion-banner__overlay-media {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+
+  @include md-max {
+    left: 0;
+    padding: 0;
+    transform: none;
+  }
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.promotion-banner__content-frame {
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.5;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 5;
+
+  @media screen and (min-width: 740px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-content: flex-start;
+    align-items: center;
+    align-items: flex-start;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .h1 {
+    color: inherit;
+    font-size: 3rem;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+
+    @include md {
+      font-size: 4rem;
+      margin: 0 0 2rem;
+    }
+  }
+
+  p {
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.promotion-banner__content {
+  @include sm {
+    padding: 0 4.5rem 0 0;
+  }
+
+  @include md {
+    padding: 0 9rem 0 11rem;
+  }
+}
+
+.promotion-banner__buttons {
+  margin: 2rem 0 0;
+
+  @include md {
+    margin: 4rem 0 0;
+  }
+
+  .button {
+    min-height: calc(4.8rem + var(--buttons-border-width)*2);
+  }
+}
+
+.promotion-banner__media {
+  margin: 2rem 0 -4rem;
+  text-align: right;
+
+  @media screen and (min-width: 740px) {
+    align-self: flex-end;
+    max-width: 43.2308%;
+    min-width: 43.2308%;
+    margin-bottom: -6rem;
+  }
+
+  @include md {
+    margin: -0.9rem 7.8rem -6rem 0;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+
+    @include sm-max {
+      width: 282px;
+    }
+  }
+}

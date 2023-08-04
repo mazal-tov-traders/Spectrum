@@ -58,9 +58,9 @@
     }
   },
   "newsletter": {
-    "label": "Email",
-    "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "label": "E-mail address",
+    "success": "You're successfully signed up",
+    "button_label": "Sign Up"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -84,6 +84,7 @@
     "article": {
       "blog": "Blog",
       "read_more_title": "Read more: {{ title }}",
+      "read_more": "more",
       "comments": {
         "one": "{{ count }} comment",
         "other": "{{ count }} comments"
@@ -95,6 +96,7 @@
       "message": "Comment",
       "post": "Post comment",
       "back_to_blog": "Back to blog",
+      "back_to": "Back to {{ title }}",
       "share": "Share this article",
       "success": "Your comment was posted successfully! Thank you!",
       "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
@@ -106,7 +108,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Add to cart",
+      "add_to_cart": "Add to Cart",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
@@ -117,7 +119,9 @@
       "inventory_out_of_stock": "Out of stock",
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
-      "on_sale": "Sale!",
+      "on_sale": "Sale",
+      "save": "Save",
+      "get_up": "Get Up To",
       "product_variants": "Product variants",
       "media": {
         "gallery_viewer": "Gallery Viewer",
@@ -205,6 +209,7 @@
     "search": {
       "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
       "page": "Page",
+      "no_new_results":"Unfortunately there is nothing found for your request",
       "products": "Products",
       "results_pages_with_count": {
         "one": "{{ count }} page",
@@ -252,22 +257,30 @@
     }
   },
   "sections": {
+    "announcements": {
+      "previous_announcement": "Previous announcement",
+      "next_announcement": "Next announcement",
+      "carousel": "Carousel",
+      "announcement": "Announcement",
+      "announcement_bar": "Announcement bar"
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
-      }
+      },
+      "my_cart": "My cart"
     },
     "cart": {
-      "title": "My cart",
+      "title": "Your cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "subtotal": "Subtotal",
       "new_subtotal": "New subtotal",
       "note": "Order special instructions",
-      "checkout": "Checkout Now",
+      "checkout": "Check out",
       "empty": "Your cart is empty",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
@@ -299,6 +312,9 @@
     "featured_collection": {
       "view_all": "View all",
       "view_all_label": "View all products in the {{ collection_name }} collection"
+    },
+    "featured_brands": {
+      "view_all": "Show All Brands"
     },
     "collection_list": {
       "view_all": "View all"
@@ -459,13 +475,21 @@
     "form": {
       "checkbox": "I want to send this as a gift",
       "email_label": "Recipient email",
-      "email_label_optional": "Recipient email (optional)",
+      "email_label_optional_for_no_js_behavior": "Recipient email (optional)",
       "email": "Email",
       "name_label": "Recipient name (optional)",
       "name": "Name",
       "message_label": "Message (optional)",
       "message": "Message",
-      "max_characters": "{{ max_chars }} characters max"
+      "max_characters": "{{ max_chars }} characters max",
+      "send_on": "YYYY-MM-DD",
+      "send_on_label": "Send on (optional)"
+    }
+  },
+  "footer": {
+    "copyright": {
+      "before": "Copyright",
+      "from_year": "1991"
     }
   }
 }

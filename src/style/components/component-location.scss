@@ -1,0 +1,102 @@
+@import '../mixins/media.scss';
+
+.component-location {
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.5;
+
+  @include sm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.component-location__content {
+  padding: 0 0 0 2rem;
+
+  @include sm {
+    max-width: 48%;
+    padding: 0 2rem 0 0;
+  }
+
+  @include md {
+    padding: 0 4rem 0 0;
+  }
+
+  .h1 {
+    margin: 0 0 2rem;
+  }
+
+  >.rte {
+    margin: 0 0 2rem;
+  }
+
+  .h2,
+  .h3 {
+    color: #02406C;
+    margin: 0 0 0.6rem;
+    text-transform: uppercase;
+
+    .icon {
+      margin: -2px 4px 0 0;
+      vertical-align: middle;
+    }
+  }
+
+  .location-data {
+    padding: 2rem 0 0;
+
+    .rte {
+      padding: 0 0 0 3rem;
+    }
+
+    p {
+      margin: 0;
+
+      a[href^='tel:'],
+      a[href^='tel:'] {
+        color: inherit;
+        font-weight: inherit;
+      }
+    }
+  }
+}
+
+.component-location__media {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+  row-gap: 2rem;
+  margin: 3rem 0 0;
+
+  @include sm {
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  iframe {
+    &:focus-visible {
+      box-shadow: none;
+      outline: 0;
+    }
+
+    height: 238px;
+    width: 100%;
+
+    @include md {
+      height: 250px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}

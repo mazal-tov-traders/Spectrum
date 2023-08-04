@@ -1,0 +1,184 @@
+{{ 'component-new-featured-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<div class="new-featured-collection" style="background: {{ section.settings.background }};">
+    <div class="page-width">
+        {% if section.settings.title != blank %}
+            <h2 class="section-title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.collection != blank %}
+            <div class="collection-slider collection-slider--{{ section.id | truncate: 6, "" }}">
+                <div class="swiper-wrapper">
+                    {% for prod in section.settings.collection.products %}
+                        <div class="swiper-slide">
+                            {% render 'card-product',
+                                card_product: prod,
+                                media_aspect_ratio: section.settings.image_ratio,
+                                show_secondary_image: section.settings.show_sec_image,
+                                show_quick_add: true,
+                                section_id: section.id
+                            %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded',  function() {
+        var swiper = new Swiper(".collection-slider", {
+            slidesPerView: 1.4,
+            spaceBetween: 30,
+        
+            lazy: {
+                enabled: true,
+                checkInView: false,
+                loadOnTransitionStart: true,
+                loadPrevNext: true,
+                loadPrevNextAmount: 1
+            },
+            scrollbar: {
+                el: ".swiper-scrollbar",
+                draggable:true
+            },
+            breakpoints: {
+                300: {
+                    slidesPerView: {{ section.settings.collection_slider_slidesperview_mobile }},
+                    spaceBetween: {{ section.settings.collection_slider_spacebetween_mobile }}
+                },
+
+                580: {
+                    slidesPerView: {{ section.settings.collection_slider_slidesperview_tablet }},
+                    spaceBetween: {{ section.settings.collection_slider_spacebetween_tablet }}
+                },
+
+                900: {
+                    slidesPerView: {{ section.settings.collection_slider_slidesperview_laptop }},
+                    spaceBetween: {{ section.settings.collection_slider_spacebetween_laptop }}
+                },
+
+                1200: {
+                    slidesPerView: {{ section.settings.collection_slider_slidesperview_desktop }},
+                    spaceBetween: {{ section.settings.collection_slider_spacebetween_desktop }}
+                }
+            },
+        });
+    }); 
+</script>
+{% schema %}
+{
+  "name": "New Featured Collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Section title"
+    },
+    {
+        "type": "color_background",
+        "id": "background",
+        "label": "Section background"
+    },
+    {
+        "type": "header",
+        "content": "Slider Settings"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_sec_image",
+        "label": "Show secondary image on hover"
+    },
+    {
+        "type": "range",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "id": "collection_slider_slidesperview_mobile",
+        "label": "( Mobile ) Collection Slider Slides Per View",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "min": 1.5,
+        "max": 2.5,
+        "step": 0.1,
+        "id": "collection_slider_slidesperview_tablet",
+        "label": "( Tablet ) Collection Slider Slides Per View",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "min": 2,
+        "max": 3,
+        "step": 0.1,
+        "id": "collection_slider_slidesperview_laptop",
+        "label": "( Laptop ) Collection Slider Slides Per View",
+        "default": 3
+      },
+      {
+        "type": "range",
+        "min": 2,
+        "max": 4,
+        "step": 0.1,
+        "id": "collection_slider_slidesperview_desktop",
+        "label": "( Desktop ) Collection Slider Slides Per View",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "id": "collection_slider_spacebetween_mobile",
+        "label": "( Mobile ) Collection Slider Space Between",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "id": "collection_slider_spacebetween_tablet",
+        "label": "( Tablet ) Collection Slider Space Between",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "id": "collection_slider_spacebetween_laptop",
+        "label": "( Laptop ) Collection Slider Space Between",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "id": "collection_slider_spacebetween_desktop",
+        "label": "( Desktop ) Collection Slider Space Between",
+        "default": 30
+      }
+  ],
+  "presets": [
+    {
+      "name": "New Featured Collection"
+    }
+  ]
+}
+{% endschema %}

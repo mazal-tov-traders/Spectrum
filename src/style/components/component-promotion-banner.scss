@@ -1,0 +1,9 @@
+@import '../mixins/media.scss';
+
+.component-promotion-banner {
+  border-radius: var(--buttons-radius);
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}

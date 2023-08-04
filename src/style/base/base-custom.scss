@@ -1,0 +1,39 @@
+@import "../mixins/media.scss";
+
+body {
+  color: rgb(var(--color-foreground));
+  min-width: 320px;
+}
+
+.page-width {
+  padding: 0 2rem;
+
+  @include sm {
+    max-width: calc(var(--page-width) + 3rem*2);
+    padding: 0 3rem;
+  }
+}
+
+main#MainContent,
+.shopify-section-group-footer-group {
+  position: relative;
+  z-index: 1;
+}
+
+.responsive-video {
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &:focus-visible {
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+}

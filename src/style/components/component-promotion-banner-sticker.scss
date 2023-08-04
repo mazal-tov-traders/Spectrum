@@ -1,0 +1,86 @@
+@import '../mixins/media.scss';
+
+.promotion-banner__sticker {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 5;
+
+  .price>& {
+    display: flex;
+
+    @include sm-max {
+      display: none;
+    }
+  }
+
+  @include sm-max {
+    display: none;
+  }
+
+  &-circle {
+    border-radius: 100%;
+    bottom: 0;
+    height: 200%;
+    left: 0;
+    position: absolute;
+    width: 200%;
+    z-index: 1;
+
+    &:empty {
+      display: block;
+    }
+  }
+
+  &-content {
+    position: relative;
+    z-index: 5;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  strong {
+    display: block;
+    font-weight: var(--font-body-weight-bold);
+    line-height: 1;
+  }
+}
+
+.promotion-banner__sticker--large {
+  $sticker-size: calc(368px/2);
+  font-size: 1.8rem;
+  letter-spacing: 0;
+  line-height: 1.0833;
+  height: $sticker-size;
+  padding: 0 0 4.1rem 3.2rem;
+  width: $sticker-size;
+
+  strong {
+    font-size: 3.5rem;
+    margin: 0.6rem 0 0;
+  }
+}
+
+.promotion-banner__sticker--small {
+  $sticker-size: calc(184px/2);
+  font-size: 1.2rem;
+  height: $sticker-size;
+  letter-spacing: 0;
+  padding: 0 0 2.1rem 1rem;
+  width: $sticker-size;
+
+  strong {
+    font-size: 1.8rem;
+    margin: 0.3rem 0 0;
+  }
+}

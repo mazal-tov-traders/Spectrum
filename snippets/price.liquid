@@ -30,14 +30,16 @@
   endif
 -%}
 
-<div class="
+<div
+  class="
     price
     {%- if price_class %} {{ price_class }}{% endif -%}
     {%- if available == false %} price--sold-out {% endif -%}
     {%- if compare_at_price > price %} price--on-sale {% endif -%}
     {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
     {%- if show_badges %} price--show-badge{% endif -%}
-  ">
+  "
+>
   <div class="price__container">
     {%- comment -%}
       Explanation of description list:
@@ -47,6 +49,9 @@
     <div class="price__regular">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       <span class="price-item price-item--regular">
+        {% assign money_price = money_price | split: '.' %}
+        {% assign afterZero = money_price[1] | prepend: '<span>.' | append: '</span>' %}
+        {% assign money_price = money_price[0] | append: afterZero %}
         {{ money_price }}
       </span>
     </div>
@@ -65,6 +70,9 @@
       {%- endunless -%}
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
       <span class="price-item price-item--sale price-item--last">
+        {% assign money_price = money_price | split: '.' %}
+        {% assign afterZero = money_price[1] | prepend: '<span>.' | append: '</span>' %}
+        {% assign money_price = money_price[0] | append: afterZero %}
         {{ money_price }}
       </span>
     </div>
