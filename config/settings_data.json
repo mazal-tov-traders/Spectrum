@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/1_1.png",
-    "logo_mob": "shopify:\/\/shop_images\/1_1_1.png",
+    "logo": "shopify://shop_images/1_1.png",
+    "logo_mob": "shopify://shop_images/1_1_1.png",
     "logo_width": 310,
-    "favicon": "shopify:\/\/shop_images\/1_1_1.png",
+    "favicon": "shopify://shop_images/1_1_1.png",
     "type_header_font": "poppins_n6",
     "heading_scale": 100,
     "type_body_font": "poppins_n3",
@@ -102,18 +111,18 @@
     "new_badge_color_scheme": "scheme-b89df094-0ba6-4ca3-9558-4436b7c7a3f8",
     "best_seller_badge_color_scheme": "scheme-b617f411-ab16-45c6-a7eb-a33d30266b42",
     "brand_headline": "",
-    "brand_description": "<p><\/p>",
+    "brand_description": "<p></p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https:\/\/facebook.com\/shopify",
-    "social_instagram_link": "http:\/\/instagram.com\/shopify",
-    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+    "social_facebook_link": "https://facebook.com/shopify",
+    "social_instagram_link": "http://instagram.com/shopify",
+    "social_youtube_link": "https://www.youtube.com/shopify",
     "social_tiktok_link": "",
-    "social_twitter_link": "https:\/\/twitter.com\/shopify",
+    "social_twitter_link": "https://twitter.com/shopify",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
-    "social_linkedin_link": "https:\/\/www.linkedin.com\/shopify",
+    "social_linkedin_link": "https://www.linkedin.com/shopify",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
@@ -136,15 +145,17 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
+      },
+      "5182184951224911228": {
+        "type": "shopify://apps/rapid-search/blocks/script/bd827795-feaa-41a8-9219-2b83f238aa7d",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
@@ -394,7 +405,7 @@
       "sale_badge_color_scheme": "accent-2",
       "sold_out_badge_color_scheme": "inverse",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
